@@ -19,5 +19,10 @@
 *.tar.gz
 *.rar
 
+org.xtext.imt.browserautomation.ide
+org.xtext.imt.browserautomation.tests
+org.xtext.imt.browserautomation.ui
+org.xtext.imt.browserautomation.ui.tests
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
