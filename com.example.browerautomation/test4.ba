@@ -1,0 +1,7 @@
+Test 'test4 ' (result=TRUE)
+		openBrowser
+		openpage 'http://www.imt-atlantique.fr/fr/rechercher'
+		insert searchfield 'searchfield1' 'DonalTrump'
+		clickOn button 'Appliquez les filtres'
+		verify text 'Aucun résultat ne correspond à votre recherche' 
+end

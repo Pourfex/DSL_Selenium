@@ -1,0 +1,115 @@
+grammar org.xtext.imt.browserautomation.BrowserAutomation with org.eclipse.xtext.common.Terminals
+
+generate browserAutomation "http://www.xtext.org/imt/browserautomation/BrowserAutomation"
+	
+Test:
+	{Test}
+	'Test' name=STRING '(' 'result=' result=BOOL ')'
+	instructions+=Instruction*
+	'end'
+;
+	
+Instruction:
+	AFFECTATION |OPEN_BROWSER | GO_TO_URL | CLICK_ON | VERIFY_THAT | INSERT_ON | CHECK_BOXE | CHOOSE_COMBOBOX | READ_ON
+;
+
+AFFECTATION: 
+	'element' name=ID '=' selector=SELECTOR
+;
+
+SELECTOR : 
+	'find' Readable '{' params+=PARAMS '}' '[' number=INT ']'
+;
+
+RefElement:
+	ref=[AFFECTATION]
+;
+
+Element : 
+	Id=ID
+;
+
+BOOL:
+	'TRUE'|'FALSE'
+;
+
+OPEN_BROWSER :
+	{OPEN_BROWSER}
+	'openBrowser' 
+;
+
+GO_TO_URL:
+	'openpage' url=STRING
+;
+
+CLICK_ON:
+	'clickOn' element=Clickable
+;
+
+VERIFY_THAT:
+	'verify' element=Verifiable
+;
+
+INSERT_ON:
+	'insert' element=Insertable data=(STRING|ID)
+;
+
+CHECK_BOXE:
+	('uncheck'|'check') ( element+=CHECKBOX* | 'ALL' )
+;
+
+CHOOSE_COMBOBOX:
+	'choosecombo' element=COMBOBOX '{' data=STRING '}'
+;
+
+READ_ON:
+		'read' element=Readable
+;
+
+Readable:
+	TEXT | BUTTON | LINK
+;
+
+Insertable:
+	SEARCH_FIELD
+;
+
+Verifiable:
+	TEXT | BUTTON | LINK | IMAGE | RefElement
+;
+
+Clickable:
+	BUTTON | LINK | IMAGE | COMBOBOX | RefElement
+;
+
+COMBOBOX:
+	'combobox' name=STRING
+;
+
+CHECKBOX:
+	'checkbox' name=STRING
+;
+
+SEARCH_FIELD:
+	'searchfield' name=STRING
+;
+
+TEXT:
+	'text' name=STRING
+;
+
+BUTTON :
+	'button' name=STRING
+;
+
+LINK :
+	'link' url=STRING
+;
+
+IMAGE :
+	'image' name=STRING ('{' params+=PARAMS* '}')*
+;
+
+PARAMS :
+	key=STRING '=' value=STRING
+;

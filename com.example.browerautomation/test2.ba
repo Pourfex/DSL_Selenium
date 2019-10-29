@@ -1,0 +1,6 @@
+Test 'test2 ' (result=TRUE)
+	openBrowser
+	openpage 'http://www.imt-atlantique.fr/fr'
+	clickOn link 'Toutes les actualités'
+	verify link 'Acceuil'
+end
