@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.Test#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.Test#getResult <em>Result</em>}</li>
  *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.Test#getInstructions <em>Instructions</em>}</li>
  * </ul>
  *
@@ -52,32 +51,6 @@ public interface Test extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Result</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Result</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Result</em>' attribute.
-   * @see #setResult(String)
-   * @see org.xtext.imt.browserautomation.browserAutomation.BrowserAutomationPackage#getTest_Result()
-   * @model
-   * @generated
-   */
-  String getResult();
-
-  /**
-   * Sets the value of the '{@link org.xtext.imt.browserautomation.browserAutomation.Test#getResult <em>Result</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Result</em>' attribute.
-   * @see #getResult()
-   * @generated
-   */
-  void setResult(String value);
 
   /**
    * Returns the value of the '<em><b>Instructions</b></em>' containment reference list.

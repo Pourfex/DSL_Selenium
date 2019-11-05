@@ -1,5 +1,5 @@
-Test 'test1' (result=TRUE)
+Test 'Test1'   
 	openBrowser
 	openpage 'http://www.imt-atlantique.fr/fr'
-	verify link 'Toutes les actualités'
+	verify link 'Toutes les actualitÃ©s'
 end

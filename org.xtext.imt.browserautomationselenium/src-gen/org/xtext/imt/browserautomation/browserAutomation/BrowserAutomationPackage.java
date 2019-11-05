@@ -77,22 +77,13 @@ public interface BrowserAutomationPackage extends EPackage
   int TEST__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Result</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEST__RESULT = 1;
-
-  /**
    * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TEST__INSTRUCTIONS = 2;
+  int TEST__INSTRUCTIONS = 1;
 
   /**
    * The number of structural features of the '<em>Test</em>' class.
@@ -101,7 +92,7 @@ public interface BrowserAutomationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TEST_FEATURE_COUNT = 3;
+  int TEST_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.imt.browserautomation.browserAutomation.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -880,17 +871,6 @@ public interface BrowserAutomationPackage extends EPackage
   EAttribute getTest_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.imt.browserautomation.browserAutomation.Test#getResult <em>Result</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Result</em>'.
-   * @see org.xtext.imt.browserautomation.browserAutomation.Test#getResult()
-   * @see #getTest()
-   * @generated
-   */
-  EAttribute getTest_Result();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.imt.browserautomation.browserAutomation.Test#getInstructions <em>Instructions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1466,14 +1446,6 @@ public interface BrowserAutomationPackage extends EPackage
      * @generated
      */
     EAttribute TEST__NAME = eINSTANCE.getTest_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Result</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TEST__RESULT = eINSTANCE.getTest_Result();
 
     /**
      * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.

@@ -8,7 +8,6 @@
       disposableProviderFactory="true" fileExtensions="ba" ecorePackage="BrowserAutomation.ecore#/">
     <genClasses ecoreClass="BrowserAutomation.ecore#//Test">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomation.ecore#//Test/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrowserAutomation.ecore#//Test/result"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BrowserAutomation.ecore#//Test/instructions"/>
     </genClasses>
     <genClasses ecoreClass="BrowserAutomation.ecore#//Instruction"/>

@@ -31,23 +31,18 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 		private final Keyword cTestKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameSTRINGTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cResultKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cResultAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cResultBOOLParserRuleCall_5_0 = (RuleCall)cResultAssignment_5.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cInstructionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cInstructionsInstructionParserRuleCall_7_0 = (RuleCall)cInstructionsAssignment_7.eContents().get(0);
-		private final Keyword cEndKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cInstructionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cInstructionsInstructionParserRuleCall_3_0 = (RuleCall)cInstructionsAssignment_3.eContents().get(0);
+		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Test:
 		//	{Test}
-		//	'Test' name=STRING '(' 'result=' result=BOOL ')'
+		//	'Test' name=STRING
 		//	instructions+=Instruction*
 		//	'end';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Test} 'Test' name=STRING '(' 'result=' result=BOOL ')' instructions+=Instruction* 'end'
+		//{Test} 'Test' name=STRING instructions+=Instruction* 'end'
 		public Group getGroup() { return cGroup; }
 		
 		//{Test}
@@ -62,29 +57,14 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_2_0() { return cNameSTRINGTerminalRuleCall_2_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
-		
-		//'result='
-		public Keyword getResultKeyword_4() { return cResultKeyword_4; }
-		
-		//result=BOOL
-		public Assignment getResultAssignment_5() { return cResultAssignment_5; }
-		
-		//BOOL
-		public RuleCall getResultBOOLParserRuleCall_5_0() { return cResultBOOLParserRuleCall_5_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
-		
 		//instructions+=Instruction*
-		public Assignment getInstructionsAssignment_7() { return cInstructionsAssignment_7; }
+		public Assignment getInstructionsAssignment_3() { return cInstructionsAssignment_3; }
 		
 		//Instruction
-		public RuleCall getInstructionsInstructionParserRuleCall_7_0() { return cInstructionsInstructionParserRuleCall_7_0; }
+		public RuleCall getInstructionsInstructionParserRuleCall_3_0() { return cInstructionsInstructionParserRuleCall_3_0; }
 		
 		//'end'
-		public Keyword getEndKeyword_8() { return cEndKeyword_8; }
+		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
 	}
 	public class InstructionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.imt.browserautomation.BrowserAutomation.Instruction");
@@ -252,25 +232,6 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 		
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_0() { return cIdIDTerminalRuleCall_0; }
-	}
-	public class BOOLElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.imt.browserautomation.BrowserAutomation.BOOL");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cTRUEKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cFALSEKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//BOOL:
-		//	'TRUE' | 'FALSE';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'TRUE' | 'FALSE'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'TRUE'
-		public Keyword getTRUEKeyword_0() { return cTRUEKeyword_0; }
-		
-		//'FALSE'
-		public Keyword getFALSEKeyword_1() { return cFALSEKeyword_1; }
 	}
 	public class OPEN_BROWSERElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.imt.browserautomation.BrowserAutomation.OPEN_BROWSER");
@@ -817,7 +778,6 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 	private final SELECTORElements pSELECTOR;
 	private final RefElementElements pRefElement;
 	private final ElementElements pElement;
-	private final BOOLElements pBOOL;
 	private final OPEN_BROWSERElements pOPEN_BROWSER;
 	private final GO_TO_URLElements pGO_TO_URL;
 	private final CLICK_ONElements pCLICK_ON;
@@ -854,7 +814,6 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 		this.pSELECTOR = new SELECTORElements();
 		this.pRefElement = new RefElementElements();
 		this.pElement = new ElementElements();
-		this.pBOOL = new BOOLElements();
 		this.pOPEN_BROWSER = new OPEN_BROWSERElements();
 		this.pGO_TO_URL = new GO_TO_URLElements();
 		this.pCLICK_ON = new CLICK_ONElements();
@@ -906,7 +865,7 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 	
 	//Test:
 	//	{Test}
-	//	'Test' name=STRING '(' 'result=' result=BOOL ')'
+	//	'Test' name=STRING
 	//	instructions+=Instruction*
 	//	'end';
 	public TestElements getTestAccess() {
@@ -965,16 +924,6 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 	
 	public ParserRule getElementRule() {
 		return getElementAccess().getRule();
-	}
-	
-	//BOOL:
-	//	'TRUE' | 'FALSE';
-	public BOOLElements getBOOLAccess() {
-		return pBOOL;
-	}
-	
-	public ParserRule getBOOLRule() {
-		return getBOOLAccess().getRule();
 	}
 	
 	//OPEN_BROWSER:

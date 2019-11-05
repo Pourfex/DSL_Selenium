@@ -3,10 +3,40 @@
  */
 package org.xtext.imt.browserautomation.generator;
 
+import com.google.common.collect.Iterables;
+import java.util.Arrays;
+import javax.inject.Inject;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.imt.browserautomation.browserAutomation.AFFECTATION;
+import org.xtext.imt.browserautomation.browserAutomation.BUTTON;
+import org.xtext.imt.browserautomation.browserAutomation.CHECKBOX;
+import org.xtext.imt.browserautomation.browserAutomation.CHECK_BOXE;
+import org.xtext.imt.browserautomation.browserAutomation.CHOOSE_COMBOBOX;
+import org.xtext.imt.browserautomation.browserAutomation.CLICK_ON;
+import org.xtext.imt.browserautomation.browserAutomation.COMBOBOX;
+import org.xtext.imt.browserautomation.browserAutomation.Clickable;
+import org.xtext.imt.browserautomation.browserAutomation.GO_TO_URL;
+import org.xtext.imt.browserautomation.browserAutomation.IMAGE;
+import org.xtext.imt.browserautomation.browserAutomation.INSERT_ON;
+import org.xtext.imt.browserautomation.browserAutomation.Insertable;
+import org.xtext.imt.browserautomation.browserAutomation.Instruction;
+import org.xtext.imt.browserautomation.browserAutomation.LINK;
+import org.xtext.imt.browserautomation.browserAutomation.OPEN_BROWSER;
+import org.xtext.imt.browserautomation.browserAutomation.READ_ON;
+import org.xtext.imt.browserautomation.browserAutomation.SEARCH_FIELD;
+import org.xtext.imt.browserautomation.browserAutomation.TEXT;
+import org.xtext.imt.browserautomation.browserAutomation.Test;
+import org.xtext.imt.browserautomation.browserAutomation.VERIFY_THAT;
+import org.xtext.imt.browserautomation.browserAutomation.Verifiable;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +45,292 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class BrowserAutomationGenerator extends AbstractGenerator {
+  @Inject
+  @Extension
+  private IQualifiedNameProvider _iQualifiedNameProvider;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<Test> _filter = Iterables.<Test>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Test.class);
+    for (final Test e : _filter) {
+      String _string = this._iQualifiedNameProvider.getFullyQualifiedName(e).toString("/");
+      String _plus = (_string + ".java");
+      fsa.generateFile(_plus, this.compile(e));
+    }
+    this.i = 0;
+  }
+  
+  private int i = 0;
+  
+  public CharSequence compile(final Test test) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package org.openqa.selenium.example;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.By;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.WebDriver;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.WebElement;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.firefox.FirefoxDriver;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.support.ui.ExpectedCondition;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.support.ui.WebDriverWait;");
+    _builder.newLine();
+    _builder.append("import static org.junit.jupiter.api.Assertions.assertNotNull;");
+    _builder.newLine();
+    _builder.append("import org.junit.jupiter.api.Test;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class ");
+    String _name = test.getName();
+    _builder.append(_name);
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("@Test");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public void test(){\t\t\t\t\t\t\t\t\t");
+    _builder.newLine();
+    {
+      EList<Instruction> _instructions = test.getInstructions();
+      for(final Instruction instruction : _instructions) {
+        _builder.append("\t\t");
+        CharSequence _compileInstruction = this.compileInstruction(instruction);
+        _builder.append(_compileInstruction, "\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("driver.close();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}   \t\t\t\t");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compileInstruction(final AFFECTATION affectation) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("instructions not defined yet ");
+    String _string = affectation.toString();
+    _builder.append(_string);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _compileInstruction(final OPEN_BROWSER instructionOpenBrowser) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("WebDriver driver = new FirefoxDriver();");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compileInstruction(final GO_TO_URL instructionGoToUrl) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("driver.get(\"");
+    String _url = instructionGoToUrl.getUrl();
+    _builder.append(_url);
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("driver.findElement(By.className(\"eu-cookie-compliance-default-button\")).click(); //ACCEPT COOKIE\t");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _compileInstruction(final CLICK_ON instructionClickOn) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("driver.findElement(By.partialLinkText(\"");
+    CharSequence _compileClickable = this.compileClickable(instructionClickOn.getElement());
+    _builder.append(_compileClickable);
+    _builder.append("\")).click();");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _compileInstruction(final VERIFY_THAT instructionVerifyThat) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("WebElement textDemo");
+    _builder.append(this.i);
+    _builder.append(" = driver.findElement(By.xpath(\"//*[text()=\'");
+    CharSequence _compileVerifiable = this.compileVerifiable(instructionVerifyThat.getElement());
+    _builder.append(_compileVerifiable);
+    _builder.append("\']\"));");
+    _builder.newLineIfNotEmpty();
+    _builder.append("assertNotNull(textDemo");
+    int _plusPlus = this.i++;
+    _builder.append(_plusPlus);
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _compileInstruction(final INSERT_ON instructionInsertOn) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("driver.findElement(By.partialLinkText(\"");
+    CharSequence _compileInsertable = this.compileInsertable(instructionInsertOn.getElement());
+    _builder.append(_compileInsertable);
+    _builder.append("\")).sendKeys(\"");
+    String _data = instructionInsertOn.getData();
+    _builder.append(_data);
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _compileInstruction(final CHECK_BOXE instructionCheckBoxe) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("instructions not defined yet ");
+    String _string = instructionCheckBoxe.toString();
+    _builder.append(_string);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _compileInstruction(final CHOOSE_COMBOBOX instructionChooseCombobox) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("instructions not defined yet ");
+    String _string = instructionChooseCombobox.toString();
+    _builder.append(_string);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _compileInstruction(final READ_ON instructionReadOn) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("instructions not defined yet ");
+    String _string = instructionReadOn.toString();
+    _builder.append(_string);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compileClickable(final Clickable clickable) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compileElement = this.compileElement(clickable);
+    _builder.append(_compileElement);
+    return _builder;
+  }
+  
+  public CharSequence compileReadable(final org.xtext.imt.browserautomation.browserAutomation.Readable readable) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compileElement = this.compileElement(readable);
+    _builder.append(_compileElement);
+    return _builder;
+  }
+  
+  public CharSequence compileInsertable(final Insertable insertable) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compileElement = this.compileElement(insertable);
+    _builder.append(_compileElement);
+    return _builder;
+  }
+  
+  public CharSequence compileVerifiable(final Verifiable verifiable) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compileElement = this.compileElement(verifiable);
+    _builder.append(_compileElement);
+    return _builder;
+  }
+  
+  protected CharSequence _compileElement(final BUTTON f) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = f.getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  protected CharSequence _compileElement(final TEXT f) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = f.getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  protected CharSequence _compileElement(final SEARCH_FIELD f) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = f.getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  protected CharSequence _compileElement(final CHECKBOX f) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = f.getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  protected CharSequence _compileElement(final COMBOBOX f) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = f.getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  protected CharSequence _compileElement(final LINK f) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _url = f.getUrl();
+    _builder.append(_url);
+    return _builder;
+  }
+  
+  protected CharSequence _compileElement(final IMAGE f) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = f.getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  public CharSequence compileInstruction(final Instruction affectation) {
+    if (affectation instanceof AFFECTATION) {
+      return _compileInstruction((AFFECTATION)affectation);
+    } else if (affectation instanceof CHECK_BOXE) {
+      return _compileInstruction((CHECK_BOXE)affectation);
+    } else if (affectation instanceof CHOOSE_COMBOBOX) {
+      return _compileInstruction((CHOOSE_COMBOBOX)affectation);
+    } else if (affectation instanceof CLICK_ON) {
+      return _compileInstruction((CLICK_ON)affectation);
+    } else if (affectation instanceof GO_TO_URL) {
+      return _compileInstruction((GO_TO_URL)affectation);
+    } else if (affectation instanceof INSERT_ON) {
+      return _compileInstruction((INSERT_ON)affectation);
+    } else if (affectation instanceof OPEN_BROWSER) {
+      return _compileInstruction((OPEN_BROWSER)affectation);
+    } else if (affectation instanceof READ_ON) {
+      return _compileInstruction((READ_ON)affectation);
+    } else if (affectation instanceof VERIFY_THAT) {
+      return _compileInstruction((VERIFY_THAT)affectation);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(affectation).toString());
+    }
+  }
+  
+  public CharSequence compileElement(final EObject f) {
+    if (f instanceof BUTTON) {
+      return _compileElement((BUTTON)f);
+    } else if (f instanceof LINK) {
+      return _compileElement((LINK)f);
+    } else if (f instanceof TEXT) {
+      return _compileElement((TEXT)f);
+    } else if (f instanceof COMBOBOX) {
+      return _compileElement((COMBOBOX)f);
+    } else if (f instanceof IMAGE) {
+      return _compileElement((IMAGE)f);
+    } else if (f instanceof SEARCH_FIELD) {
+      return _compileElement((SEARCH_FIELD)f);
+    } else if (f instanceof CHECKBOX) {
+      return _compileElement((CHECKBOX)f);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(f).toString());
+    }
   }
 }

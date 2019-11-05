@@ -32,7 +32,6 @@ import org.xtext.imt.browserautomation.browserAutomation.Test;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.impl.TestImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.impl.TestImpl#getResult <em>Result</em>}</li>
  *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.impl.TestImpl#getInstructions <em>Instructions</em>}</li>
  * </ul>
  *
@@ -59,26 +58,6 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getResult() <em>Result</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getResult()
-   * @generated
-   * @ordered
-   */
-  protected static final String RESULT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getResult() <em>Result</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getResult()
-   * @generated
-   * @ordered
-   */
-  protected String result = RESULT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getInstructions() <em>Instructions</em>}' containment reference list.
@@ -139,29 +118,6 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getResult()
-  {
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setResult(String newResult)
-  {
-    String oldResult = result;
-    result = newResult;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BrowserAutomationPackage.TEST__RESULT, oldResult, result));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Instruction> getInstructions()
   {
     if (instructions == null)
@@ -199,8 +155,6 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
     {
       case BrowserAutomationPackage.TEST__NAME:
         return getName();
-      case BrowserAutomationPackage.TEST__RESULT:
-        return getResult();
       case BrowserAutomationPackage.TEST__INSTRUCTIONS:
         return getInstructions();
     }
@@ -220,9 +174,6 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
     {
       case BrowserAutomationPackage.TEST__NAME:
         setName((String)newValue);
-        return;
-      case BrowserAutomationPackage.TEST__RESULT:
-        setResult((String)newValue);
         return;
       case BrowserAutomationPackage.TEST__INSTRUCTIONS:
         getInstructions().clear();
@@ -245,9 +196,6 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
       case BrowserAutomationPackage.TEST__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case BrowserAutomationPackage.TEST__RESULT:
-        setResult(RESULT_EDEFAULT);
-        return;
       case BrowserAutomationPackage.TEST__INSTRUCTIONS:
         getInstructions().clear();
         return;
@@ -267,8 +215,6 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
     {
       case BrowserAutomationPackage.TEST__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case BrowserAutomationPackage.TEST__RESULT:
-        return RESULT_EDEFAULT == null ? result != null : !RESULT_EDEFAULT.equals(result);
       case BrowserAutomationPackage.TEST__INSTRUCTIONS:
         return instructions != null && !instructions.isEmpty();
     }
@@ -288,8 +234,6 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", result: ");
-    result.append(result);
     result.append(')');
     return result.toString();
   }

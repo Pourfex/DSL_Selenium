@@ -1,7 +1,7 @@
-Test 'test3 ' (result=TRUE)
+Test 'Test3'   
 	openBrowser
 	openpage 'http://www.imt-atlantique.fr/fr'
-	verify link 'Toutes les actualités'
-	clickOn image 'Toutes les actualités' { 'alt'='Acceuil' }
-	verify link 'Toutes les actualités' 
+	clickOn link 'TOUTES LES ACTUALITÃ‰S'
+	clickOn image 'Accueil'
+	verify link 'Toutes les actualitÃ©s' 
 end

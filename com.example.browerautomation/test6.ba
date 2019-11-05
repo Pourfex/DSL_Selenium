@@ -1,4 +1,4 @@
-Test 'test6 ' (result=FALSE)
+Test 'test6 ' 
 		openBrowser
 		openpage 'http://www.imt-atlantique.fr/fr/rechercher'
 		insert searchfield 'searchfield1' '2007'

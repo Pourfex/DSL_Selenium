@@ -32,7 +32,6 @@ public class BrowserAutomationParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, BrowserAutomationGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getInstructionAccess().getAlternatives(), "rule__Instruction__Alternatives");
-			builder.put(grammarAccess.getBOOLAccess().getAlternatives(), "rule__BOOL__Alternatives");
 			builder.put(grammarAccess.getINSERT_ONAccess().getDataAlternatives_2_0(), "rule__INSERT_ON__DataAlternatives_2_0");
 			builder.put(grammarAccess.getCHECK_BOXEAccess().getAlternatives_0(), "rule__CHECK_BOXE__Alternatives_0");
 			builder.put(grammarAccess.getCHECK_BOXEAccess().getAlternatives_1(), "rule__CHECK_BOXE__Alternatives_1");
@@ -60,8 +59,7 @@ public class BrowserAutomationParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIMAGEAccess().getGroup_2(), "rule__IMAGE__Group_2__0");
 			builder.put(grammarAccess.getPARAMSAccess().getGroup(), "rule__PARAMS__Group__0");
 			builder.put(grammarAccess.getTestAccess().getNameAssignment_2(), "rule__Test__NameAssignment_2");
-			builder.put(grammarAccess.getTestAccess().getResultAssignment_5(), "rule__Test__ResultAssignment_5");
-			builder.put(grammarAccess.getTestAccess().getInstructionsAssignment_7(), "rule__Test__InstructionsAssignment_7");
+			builder.put(grammarAccess.getTestAccess().getInstructionsAssignment_3(), "rule__Test__InstructionsAssignment_3");
 			builder.put(grammarAccess.getAFFECTATIONAccess().getNameAssignment_1(), "rule__AFFECTATION__NameAssignment_1");
 			builder.put(grammarAccess.getAFFECTATIONAccess().getSelectorAssignment_3(), "rule__AFFECTATION__SelectorAssignment_3");
 			builder.put(grammarAccess.getSELECTORAccess().getParamsAssignment_3(), "rule__SELECTOR__ParamsAssignment_3");

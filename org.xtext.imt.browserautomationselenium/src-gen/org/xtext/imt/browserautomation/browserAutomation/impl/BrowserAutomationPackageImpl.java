@@ -298,19 +298,9 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTest_Result()
-  {
-    return (EAttribute)testEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getTest_Instructions()
   {
-    return (EReference)testEClass.getEStructuralFeatures().get(2);
+    return (EReference)testEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -845,7 +835,6 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
     // Create classes and their features
     testEClass = createEClass(TEST);
     createEAttribute(testEClass, TEST__NAME);
-    createEAttribute(testEClass, TEST__RESULT);
     createEReference(testEClass, TEST__INSTRUCTIONS);
 
     instructionEClass = createEClass(INSTRUCTION);
@@ -981,7 +970,6 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
     // Initialize classes and features; add operations and parameters
     initEClass(testEClass, Test.class, "Test", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTest_Name(), ecorePackage.getEString(), "name", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTest_Result(), ecorePackage.getEString(), "result", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTest_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

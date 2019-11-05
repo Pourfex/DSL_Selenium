@@ -1,7 +1,7 @@
-Test 'test4 ' (result=TRUE)
+Test 'Test4' 
 		openBrowser
 		openpage 'http://www.imt-atlantique.fr/fr/rechercher'
-		insert searchfield 'searchfield1' 'DonalTrump'
-		clickOn button 'Appliquez les filtres'
-		verify text 'Aucun résultat ne correspond à votre recherche' 
+		insert searchfield 'recherche2' 'DonalTrump'
+		clickOn button 'Appliquer les filtres'
+		verify text 'Aucun rÃ©sultat ne correspond Ã  votre recherche' 
 end

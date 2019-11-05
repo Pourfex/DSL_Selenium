@@ -1,4 +1,4 @@
-Test 'test8' (result=FALSE)
+Test 'test8' 
 		openBrowser
 		openpage 'http://www.imt-atlantique.fr/fr'
 		element titre = find text '' { 'class' = 'actu_home_ctner_inner_cell1_titre' } [1]

@@ -1,4 +1,4 @@
-Test 'test5 ' (result=TRUE)
+Test 'test5 ' 
 		openBrowser
 		openpage 'http://www.imt-atlantique.fr/fr/trouver-ma-formation'
 		uncheck ALL

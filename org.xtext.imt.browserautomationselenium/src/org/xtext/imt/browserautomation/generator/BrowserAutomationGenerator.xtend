@@ -7,6 +7,29 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.imt.browserautomation.browserAutomation.Test
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import javax.inject.Inject
+import org.xtext.imt.browserautomation.browserAutomation.OPEN_BROWSER
+import org.xtext.imt.browserautomation.browserAutomation.GO_TO_URL
+import org.xtext.imt.browserautomation.browserAutomation.CLICK_ON
+import org.xtext.imt.browserautomation.browserAutomation.BUTTON
+import org.xtext.imt.browserautomation.browserAutomation.Clickable
+import org.xtext.imt.browserautomation.browserAutomation.TEXT
+import org.xtext.imt.browserautomation.browserAutomation.COMBOBOX
+import org.xtext.imt.browserautomation.browserAutomation.CHECKBOX
+import org.xtext.imt.browserautomation.browserAutomation.SEARCH_FIELD
+import org.xtext.imt.browserautomation.browserAutomation.VERIFY_THAT
+import org.xtext.imt.browserautomation.browserAutomation.INSERT_ON
+import org.xtext.imt.browserautomation.browserAutomation.CHECK_BOXE
+import org.xtext.imt.browserautomation.browserAutomation.CHOOSE_COMBOBOX
+import org.xtext.imt.browserautomation.browserAutomation.READ_ON
+import org.xtext.imt.browserautomation.browserAutomation.AFFECTATION
+import org.xtext.imt.browserautomation.browserAutomation.LINK
+import org.xtext.imt.browserautomation.browserAutomation.IMAGE
+import org.xtext.imt.browserautomation.browserAutomation.Insertable
+import org.xtext.imt.browserautomation.browserAutomation.Verifiable
+import org.xtext.imt.browserautomation.browserAutomation.Readable
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +38,99 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class BrowserAutomationGenerator extends AbstractGenerator {
 
+	@Inject extension IQualifiedNameProvider
+
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		for (e : resource.allContents.toIterable.filter(Test)) {
+			fsa.generateFile(e.fullyQualifiedName.toString("/") + ".java", e.compile)
+		}
+		i=0;
 	}
+	
+	private int i = 0; 
+	
+
+	def compile(Test test) ''' 
+		package org.openqa.selenium.example;
+		import org.openqa.selenium.By;
+		import org.openqa.selenium.WebDriver;
+		import org.openqa.selenium.WebElement;
+		import org.openqa.selenium.firefox.FirefoxDriver;
+		import org.openqa.selenium.support.ui.ExpectedCondition;
+		import org.openqa.selenium.support.ui.WebDriverWait;
+		import static org.junit.jupiter.api.Assertions.assertNotNull;
+		import org.junit.jupiter.api.Test;
+		
+		public class «test.name» {
+			
+			@Test
+			public void test(){									
+				«FOR instruction : test.instructions»
+					«instruction.compileInstruction»
+				«ENDFOR» 
+				driver.close();
+			}   				
+		}
+	'''
+
+	def dispatch compileInstruction(AFFECTATION affectation) '''
+		instructions not defined yet «affectation.toString»
+	'''
+
+	def dispatch compileInstruction(OPEN_BROWSER instructionOpenBrowser) '''
+		WebDriver driver = new FirefoxDriver();
+	'''
+
+	def dispatch compileInstruction(GO_TO_URL instructionGoToUrl) '''
+		driver.get("«instructionGoToUrl.url»");
+		driver.findElement(By.className("eu-cookie-compliance-default-button")).click(); //ACCEPT COOKIE	
+	'''
+
+	def dispatch compileInstruction(CLICK_ON instructionClickOn) '''
+		driver.findElement(By.partialLinkText("«instructionClickOn.element.compileClickable»")).click();
+	'''
+
+	def dispatch compileInstruction(VERIFY_THAT instructionVerifyThat) '''
+		WebElement textDemo«i» = driver.findElement(By.xpath("//*[text()='«instructionVerifyThat.element.compileVerifiable»']"));
+		assertNotNull(textDemo«i++»);
+	'''
+
+	def dispatch compileInstruction(INSERT_ON instructionInsertOn) '''
+		driver.findElement(By.partialLinkText("«instructionInsertOn.element.compileInsertable»")).sendKeys("«instructionInsertOn.data»");
+	'''
+
+	def dispatch compileInstruction(CHECK_BOXE instructionCheckBoxe) '''
+		instructions not defined yet «instructionCheckBoxe.toString»
+	'''
+
+	def dispatch compileInstruction(CHOOSE_COMBOBOX instructionChooseCombobox) '''
+		instructions not defined yet «instructionChooseCombobox.toString»
+	'''
+
+	def dispatch compileInstruction(READ_ON instructionReadOn) '''
+		instructions not defined yet «instructionReadOn.toString»
+	'''
+
+	def compileClickable(Clickable clickable) '''«clickable.compileElement»'''
+
+	def compileReadable(Readable readable) '''«readable.compileElement»'''
+
+	def compileInsertable(Insertable insertable) '''«insertable.compileElement»'''
+
+	def compileVerifiable(Verifiable verifiable) '''«verifiable.compileElement»'''
+
+	def dispatch compileElement(BUTTON f) '''«f.name»'''
+
+	def dispatch compileElement(TEXT f) '''«f.name»'''
+
+	def dispatch compileElement(SEARCH_FIELD f) '''«f.name»'''
+
+	def dispatch compileElement(CHECKBOX f) '''«f.name»'''
+
+	def dispatch compileElement(COMBOBOX f) '''«f.name»'''
+
+	def dispatch compileElement(LINK f) '''«f.url»'''
+
+	def dispatch compileElement(IMAGE f) '''«f.name»'''
+
 }

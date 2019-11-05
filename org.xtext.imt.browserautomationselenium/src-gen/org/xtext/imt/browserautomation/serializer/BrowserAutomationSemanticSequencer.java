@@ -517,7 +517,7 @@ public class BrowserAutomationSemanticSequencer extends AbstractDelegatingSemant
 	 *     Test returns Test
 	 *
 	 * Constraint:
-	 *     (name=STRING result=BOOL instructions+=Instruction*)
+	 *     (name=STRING instructions+=Instruction*)
 	 */
 	protected void sequence_Test(ISerializationContext context, Test semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

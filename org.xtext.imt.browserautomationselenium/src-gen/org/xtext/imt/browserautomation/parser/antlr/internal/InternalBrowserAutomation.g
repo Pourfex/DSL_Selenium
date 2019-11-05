@@ -105,43 +105,12 @@ ruleTest returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_3='('
-		{
-			newLeafNode(otherlv_3, grammarAccess.getTestAccess().getLeftParenthesisKeyword_3());
-		}
-		otherlv_4='result='
-		{
-			newLeafNode(otherlv_4, grammarAccess.getTestAccess().getResultKeyword_4());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTestAccess().getResultBOOLParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getTestAccess().getInstructionsInstructionParserRuleCall_3_0());
 				}
-				lv_result_5_0=ruleBOOL
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTestRule());
-					}
-					set(
-						$current,
-						"result",
-						lv_result_5_0,
-						"org.xtext.imt.browserautomation.BrowserAutomation.BOOL");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_6=')'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getTestAccess().getRightParenthesisKeyword_6());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTestAccess().getInstructionsInstructionParserRuleCall_7_0());
-				}
-				lv_instructions_7_0=ruleInstruction
+				lv_instructions_3_0=ruleInstruction
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTestRule());
@@ -149,15 +118,15 @@ ruleTest returns [EObject current=null]
 					add(
 						$current,
 						"instructions",
-						lv_instructions_7_0,
+						lv_instructions_3_0,
 						"org.xtext.imt.browserautomation.BrowserAutomation.Instruction");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_8='end'
+		otherlv_4='end'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getTestAccess().getEndKeyword_8());
+			newLeafNode(otherlv_4, grammarAccess.getTestAccess().getEndKeyword_4());
 		}
 	)
 ;
@@ -436,36 +405,6 @@ ruleRefElement returns [EObject current=null]
 				newLeafNode(otherlv_0, grammarAccess.getRefElementAccess().getRefAFFECTATIONCrossReference_0());
 			}
 		)
-	)
-;
-
-// Entry rule entryRuleBOOL
-entryRuleBOOL returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getBOOLRule()); }
-	iv_ruleBOOL=ruleBOOL
-	{ $current=$iv_ruleBOOL.current.getText(); }
-	EOF;
-
-// Rule BOOL
-ruleBOOL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		kw='TRUE'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getBOOLAccess().getTRUEKeyword_0());
-		}
-		    |
-		kw='FALSE'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getBOOLAccess().getFALSEKeyword_1());
-		}
 	)
 ;
 
