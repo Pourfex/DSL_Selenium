@@ -3,6 +3,7 @@
  */
 package org.xtext.imt.browserautomation.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import java.util.Arrays;
 import javax.inject.Inject;
@@ -25,14 +26,16 @@ import org.xtext.imt.browserautomation.browserAutomation.CLICK_ON;
 import org.xtext.imt.browserautomation.browserAutomation.COMBOBOX;
 import org.xtext.imt.browserautomation.browserAutomation.Clickable;
 import org.xtext.imt.browserautomation.browserAutomation.GO_TO_URL;
-import org.xtext.imt.browserautomation.browserAutomation.IMAGE;
 import org.xtext.imt.browserautomation.browserAutomation.INSERT_ON;
 import org.xtext.imt.browserautomation.browserAutomation.Insertable;
 import org.xtext.imt.browserautomation.browserAutomation.Instruction;
 import org.xtext.imt.browserautomation.browserAutomation.LINK;
 import org.xtext.imt.browserautomation.browserAutomation.OPEN_BROWSER;
+import org.xtext.imt.browserautomation.browserAutomation.PARAMS;
 import org.xtext.imt.browserautomation.browserAutomation.READ_ON;
+import org.xtext.imt.browserautomation.browserAutomation.RefElement;
 import org.xtext.imt.browserautomation.browserAutomation.SEARCH_FIELD;
+import org.xtext.imt.browserautomation.browserAutomation.SELECTOR;
 import org.xtext.imt.browserautomation.browserAutomation.TEXT;
 import org.xtext.imt.browserautomation.browserAutomation.Test;
 import org.xtext.imt.browserautomation.browserAutomation.VERIFY_THAT;
@@ -82,6 +85,8 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("import org.junit.jupiter.api.Test;");
     _builder.newLine();
+    _builder.append("import java.util.HashMap;");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
     String _name = test.getName();
@@ -94,7 +99,14 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
     _builder.append("@Test");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public void test(){\t\t\t\t\t\t\t\t\t");
+    _builder.append("public void test(){\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("HashMap<String, WebElement> refsElement = new HashMap<String, WebElement>();");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t\t\t\t");
     _builder.newLine();
     {
       EList<Instruction> _instructions = test.getInstructions();
@@ -118,9 +130,51 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
   
   protected CharSequence _compileInstruction(final AFFECTATION affectation) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("instructions not defined yet ");
-    String _string = affectation.toString();
-    _builder.append(_string);
+    _builder.append("WebElement ");
+    String _name = affectation.getName();
+    _builder.append(_name);
+    _builder.append(" = driver.findElement(By.xpath(\"//*[text()=\'");
+    CharSequence _compileSelector = this.compileSelector(affectation.getSelector());
+    _builder.append(_compileSelector);
+    _builder.append("\']\"));");
+    _builder.newLineIfNotEmpty();
+    _builder.append("refsElement.put(\"");
+    String _name_1 = affectation.getName();
+    _builder.append(_name_1);
+    _builder.append("\",");
+    String _name_2 = affectation.getName();
+    _builder.append(_name_2);
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("assertNotNull(refsElement.get(\"");
+    String _name_3 = affectation.getName();
+    _builder.append(_name_3);
+    _builder.append("\"));");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compileSelector(final SELECTOR selector) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<PARAMS> _params = selector.getParams();
+      for(final PARAMS param : _params) {
+        CharSequence _compileParam = this.compileParam(param);
+        _builder.append(_compileParam);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compileParam(final PARAMS param) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("compile params not defined yet key :  ");
+    String _key = param.getKey();
+    _builder.append(_key);
+    _builder.append(" value ");
+    String _value = param.getValue();
+    _builder.append(_value);
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -146,28 +200,47 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
   
   protected CharSequence _compileInstruction(final CLICK_ON instructionClickOn) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("driver.findElement(By.partialLinkText(\"");
-    CharSequence _compileClickable = this.compileClickable(instructionClickOn.getElement());
-    _builder.append(_compileClickable);
-    _builder.append("\")).click();");
-    _builder.newLineIfNotEmpty();
+    {
+      if (((Objects.equal(instructionClickOn.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.BUTTONImpl") || Objects.equal(instructionClickOn.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.LINKImpl")) || Objects.equal(instructionClickOn.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.IMAGEImpl"))) {
+        _builder.append("driver.findElement(By.partialLinkText(\"");
+        CharSequence _compileClickable = this.compileClickable(instructionClickOn.getElement());
+        _builder.append(_compileClickable);
+        _builder.append("\")).click();");
+        _builder.newLineIfNotEmpty();
+      } else {
+        CharSequence _compileElement = this.compileElement(instructionClickOn.getElement());
+        _builder.append(_compileElement);
+        _builder.append(".click();");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   protected CharSequence _compileInstruction(final VERIFY_THAT instructionVerifyThat) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("WebElement textDemo");
-    _builder.append(this.i);
-    _builder.append(" = driver.findElement(By.xpath(\"//*[text()=\'");
-    CharSequence _compileVerifiable = this.compileVerifiable(instructionVerifyThat.getElement());
-    _builder.append(_compileVerifiable);
-    _builder.append("\']\"));");
-    _builder.newLineIfNotEmpty();
-    _builder.append("assertNotNull(textDemo");
-    int _plusPlus = this.i++;
-    _builder.append(_plusPlus);
-    _builder.append(");");
-    _builder.newLineIfNotEmpty();
+    {
+      if ((((Objects.equal(instructionVerifyThat.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.TEXTImpl") || Objects.equal(instructionVerifyThat.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.LINKImpl")) || Objects.equal(instructionVerifyThat.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.IMAGEImpl")) || Objects.equal(instructionVerifyThat.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.BUTTONImpl"))) {
+        _builder.append("WebElement textDemo");
+        _builder.append(this.i);
+        _builder.append(" = driver.findElement(By.xpath(\"//*[text()=\'");
+        CharSequence _compileVerifiable = this.compileVerifiable(instructionVerifyThat.getElement());
+        _builder.append(_compileVerifiable);
+        _builder.append("\']\"));");
+        _builder.newLineIfNotEmpty();
+        _builder.append("assertNotNull(textDemo");
+        int _plusPlus = this.i++;
+        _builder.append(_plusPlus);
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+      } else {
+        _builder.append("assertNotNull(");
+        CharSequence _compileElement = this.compileElement(instructionVerifyThat.getElement());
+        _builder.append(_compileElement);
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
@@ -281,10 +354,12 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  protected CharSequence _compileElement(final IMAGE f) {
+  protected CharSequence _compileElement(final RefElement f) {
     StringConcatenation _builder = new StringConcatenation();
-    String _name = f.getName();
+    _builder.append("refsElement.get(\"");
+    String _name = f.getRef().getName();
     _builder.append(_name);
+    _builder.append("\")");
     return _builder;
   }
   
@@ -316,16 +391,16 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
   public CharSequence compileElement(final EObject f) {
     if (f instanceof BUTTON) {
       return _compileElement((BUTTON)f);
-    } else if (f instanceof LINK) {
-      return _compileElement((LINK)f);
-    } else if (f instanceof TEXT) {
-      return _compileElement((TEXT)f);
     } else if (f instanceof COMBOBOX) {
       return _compileElement((COMBOBOX)f);
-    } else if (f instanceof IMAGE) {
-      return _compileElement((IMAGE)f);
+    } else if (f instanceof LINK) {
+      return _compileElement((LINK)f);
+    } else if (f instanceof RefElement) {
+      return _compileElement((RefElement)f);
     } else if (f instanceof SEARCH_FIELD) {
       return _compileElement((SEARCH_FIELD)f);
+    } else if (f instanceof TEXT) {
+      return _compileElement((TEXT)f);
     } else if (f instanceof CHECKBOX) {
       return _compileElement((CHECKBOX)f);
     } else {

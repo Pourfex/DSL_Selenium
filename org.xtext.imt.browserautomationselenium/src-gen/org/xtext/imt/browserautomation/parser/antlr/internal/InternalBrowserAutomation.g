@@ -314,14 +314,25 @@ ruleSELECTOR returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getSELECTORAccess().getFindKeyword_0());
 		}
-		{
-			newCompositeNode(grammarAccess.getSELECTORAccess().getReadableParserRuleCall_1());
-		}
-		this_Readable_1=ruleReadable
-		{
-			$current = $this_Readable_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSELECTORAccess().getReadableReadableParserRuleCall_1_0());
+				}
+				lv_readable_1_0=ruleReadable
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSELECTORRule());
+					}
+					set(
+						$current,
+						"readable",
+						lv_readable_1_0,
+						"org.xtext.imt.browserautomation.BrowserAutomation.Readable");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		otherlv_2='{'
 		{
 			newLeafNode(otherlv_2, grammarAccess.getSELECTORAccess().getLeftCurlyBracketKeyword_2());

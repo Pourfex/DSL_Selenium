@@ -3,6 +3,8 @@
  */
 package org.xtext.imt.browserautomation.browserAutomation;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -10,6 +12,14 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>SELECTOR</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getReadable <em>Readable</em>}</li>
+ *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getParams <em>Params</em>}</li>
+ *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getNumber <em>Number</em>}</li>
+ * </ul>
  *
  * @see org.xtext.imt.browserautomation.browserAutomation.BrowserAutomationPackage#getSELECTOR()
  * @model
@@ -17,4 +27,72 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SELECTOR extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Readable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Readable</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Readable</em>' containment reference.
+   * @see #setReadable(org.xtext.imt.browserautomation.browserAutomation.Readable)
+   * @see org.xtext.imt.browserautomation.browserAutomation.BrowserAutomationPackage#getSELECTOR_Readable()
+   * @model containment="true"
+   * @generated
+   */
+  org.xtext.imt.browserautomation.browserAutomation.Readable getReadable();
+
+  /**
+   * Sets the value of the '{@link org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getReadable <em>Readable</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Readable</em>' containment reference.
+   * @see #getReadable()
+   * @generated
+   */
+  void setReadable(org.xtext.imt.browserautomation.browserAutomation.Readable value);
+
+  /**
+   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.imt.browserautomation.browserAutomation.PARAMS}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Params</em>' containment reference list.
+   * @see org.xtext.imt.browserautomation.browserAutomation.BrowserAutomationPackage#getSELECTOR_Params()
+   * @model containment="true"
+   * @generated
+   */
+  EList<PARAMS> getParams();
+
+  /**
+   * Returns the value of the '<em><b>Number</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Number</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Number</em>' attribute.
+   * @see #setNumber(int)
+   * @see org.xtext.imt.browserautomation.browserAutomation.BrowserAutomationPackage#getSELECTOR_Number()
+   * @model
+   * @generated
+   */
+  int getNumber();
+
+  /**
+   * Sets the value of the '{@link org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getNumber <em>Number</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Number</em>' attribute.
+   * @see #getNumber()
+   * @generated
+   */
+  void setNumber(int value);
+
 } // SELECTOR

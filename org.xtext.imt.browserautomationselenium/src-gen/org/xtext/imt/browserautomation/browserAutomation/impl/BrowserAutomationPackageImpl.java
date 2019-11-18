@@ -358,6 +358,36 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getSELECTOR_Readable()
+  {
+    return (EReference)selectorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSELECTOR_Params()
+  {
+    return (EReference)selectorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSELECTOR_Number()
+  {
+    return (EAttribute)selectorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getRefElement()
   {
     return refElementEClass;
@@ -571,26 +601,6 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
   public EClass getReadable()
   {
     return readableEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getReadable_Params()
-  {
-    return (EReference)readableEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getReadable_Number()
-  {
-    return (EAttribute)readableEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -844,6 +854,9 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
     createEReference(affectationEClass, AFFECTATION__SELECTOR);
 
     selectorEClass = createEClass(SELECTOR);
+    createEReference(selectorEClass, SELECTOR__READABLE);
+    createEReference(selectorEClass, SELECTOR__PARAMS);
+    createEAttribute(selectorEClass, SELECTOR__NUMBER);
 
     refElementEClass = createEClass(REF_ELEMENT);
     createEReference(refElementEClass, REF_ELEMENT__REF);
@@ -877,8 +890,6 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
     createEReference(reaD_ONEClass, READ_ON__ELEMENT);
 
     readableEClass = createEClass(READABLE);
-    createEReference(readableEClass, READABLE__PARAMS);
-    createEAttribute(readableEClass, READABLE__NUMBER);
 
     insertableEClass = createEClass(INSERTABLE);
 
@@ -953,7 +964,6 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
     checK_BOXEEClass.getESuperTypes().add(this.getInstruction());
     choosE_COMBOBOXEClass.getESuperTypes().add(this.getInstruction());
     reaD_ONEClass.getESuperTypes().add(this.getInstruction());
-    readableEClass.getESuperTypes().add(this.getSELECTOR());
     comboboxEClass.getESuperTypes().add(this.getClickable());
     searcH_FIELDEClass.getESuperTypes().add(this.getInsertable());
     textEClass.getESuperTypes().add(this.getReadable());
@@ -979,6 +989,9 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
     initEReference(getAFFECTATION_Selector(), this.getSELECTOR(), null, "selector", null, 0, 1, org.xtext.imt.browserautomation.browserAutomation.AFFECTATION.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectorEClass, org.xtext.imt.browserautomation.browserAutomation.SELECTOR.class, "SELECTOR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSELECTOR_Readable(), this.getReadable(), null, "readable", null, 0, 1, org.xtext.imt.browserautomation.browserAutomation.SELECTOR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSELECTOR_Params(), this.getPARAMS(), null, "params", null, 0, -1, org.xtext.imt.browserautomation.browserAutomation.SELECTOR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSELECTOR_Number(), ecorePackage.getEInt(), "number", null, 0, 1, org.xtext.imt.browserautomation.browserAutomation.SELECTOR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(refElementEClass, RefElement.class, "RefElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRefElement_Ref(), this.getAFFECTATION(), null, "ref", null, 0, 1, RefElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1012,8 +1025,6 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
     initEReference(getREAD_ON_Element(), this.getReadable(), null, "element", null, 0, 1, org.xtext.imt.browserautomation.browserAutomation.READ_ON.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(readableEClass, org.xtext.imt.browserautomation.browserAutomation.Readable.class, "Readable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getReadable_Params(), this.getPARAMS(), null, "params", null, 0, -1, org.xtext.imt.browserautomation.browserAutomation.Readable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getReadable_Number(), ecorePackage.getEInt(), "number", null, 0, 1, org.xtext.imt.browserautomation.browserAutomation.Readable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(insertableEClass, Insertable.class, "Insertable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

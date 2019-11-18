@@ -211,7 +211,6 @@ public class BrowserAutomationSwitch<T> extends Switch<T>
       {
         org.xtext.imt.browserautomation.browserAutomation.Readable readable = (org.xtext.imt.browserautomation.browserAutomation.Readable)theEObject;
         T result = caseReadable(readable);
-        if (result == null) result = caseSELECTOR(readable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -265,7 +264,6 @@ public class BrowserAutomationSwitch<T> extends Switch<T>
         T result = caseTEXT(text);
         if (result == null) result = caseReadable(text);
         if (result == null) result = caseVerifiable(text);
-        if (result == null) result = caseSELECTOR(text);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -276,7 +274,6 @@ public class BrowserAutomationSwitch<T> extends Switch<T>
         if (result == null) result = caseReadable(button);
         if (result == null) result = caseVerifiable(button);
         if (result == null) result = caseClickable(button);
-        if (result == null) result = caseSELECTOR(button);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -287,7 +284,6 @@ public class BrowserAutomationSwitch<T> extends Switch<T>
         if (result == null) result = caseReadable(link);
         if (result == null) result = caseVerifiable(link);
         if (result == null) result = caseClickable(link);
-        if (result == null) result = caseSELECTOR(link);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

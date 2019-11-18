@@ -15,7 +15,7 @@ AFFECTATION:
 	'element' name=ID '=' selector=SELECTOR;
 
 SELECTOR:
-	'find' Readable '{' params+=PARAMS '}' '[' number=INT ']';
+	'find' readable=Readable '{' params+=PARAMS '}' '[' number=INT ']';
 
 RefElement:
 	ref=[AFFECTATION];

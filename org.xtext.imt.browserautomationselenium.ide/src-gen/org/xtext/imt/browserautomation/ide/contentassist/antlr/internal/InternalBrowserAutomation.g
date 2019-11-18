@@ -1193,9 +1193,9 @@ rule__SELECTOR__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSELECTORAccess().getReadableParserRuleCall_1()); }
-	ruleReadable
-	{ after(grammarAccess.getSELECTORAccess().getReadableParserRuleCall_1()); }
+	{ before(grammarAccess.getSELECTORAccess().getReadableAssignment_1()); }
+	(rule__SELECTOR__ReadableAssignment_1)
+	{ after(grammarAccess.getSELECTORAccess().getReadableAssignment_1()); }
 )
 ;
 finally {
@@ -2525,6 +2525,21 @@ rule__AFFECTATION__SelectorAssignment_3
 		{ before(grammarAccess.getAFFECTATIONAccess().getSelectorSELECTORParserRuleCall_3_0()); }
 		ruleSELECTOR
 		{ after(grammarAccess.getAFFECTATIONAccess().getSelectorSELECTORParserRuleCall_3_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SELECTOR__ReadableAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSELECTORAccess().getReadableReadableParserRuleCall_1_0()); }
+		ruleReadable
+		{ after(grammarAccess.getSELECTORAccess().getReadableReadableParserRuleCall_1_0()); }
 	)
 ;
 finally {

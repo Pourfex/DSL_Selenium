@@ -3,22 +3,83 @@
  */
 package org.xtext.imt.browserautomation.browserAutomation.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.xtext.imt.browserautomation.browserAutomation.BrowserAutomationPackage;
+import org.xtext.imt.browserautomation.browserAutomation.PARAMS;
 import org.xtext.imt.browserautomation.browserAutomation.SELECTOR;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>SELECTOR</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.impl.SELECTORImpl#getReadable <em>Readable</em>}</li>
+ *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.impl.SELECTORImpl#getParams <em>Params</em>}</li>
+ *   <li>{@link org.xtext.imt.browserautomation.browserAutomation.impl.SELECTORImpl#getNumber <em>Number</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class SELECTORImpl extends MinimalEObjectImpl.Container implements SELECTOR
 {
+  /**
+   * The cached value of the '{@link #getReadable() <em>Readable</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReadable()
+   * @generated
+   * @ordered
+   */
+  protected org.xtext.imt.browserautomation.browserAutomation.Readable readable;
+
+  /**
+   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParams()
+   * @generated
+   * @ordered
+   */
+  protected EList<PARAMS> params;
+
+  /**
+   * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNumber()
+   * @generated
+   * @ordered
+   */
+  protected static final int NUMBER_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNumber()
+   * @generated
+   * @ordered
+   */
+  protected int number = NUMBER_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +99,214 @@ public class SELECTORImpl extends MinimalEObjectImpl.Container implements SELECT
   protected EClass eStaticClass()
   {
     return BrowserAutomationPackage.Literals.SELECTOR;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.xtext.imt.browserautomation.browserAutomation.Readable getReadable()
+  {
+    return readable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetReadable(org.xtext.imt.browserautomation.browserAutomation.Readable newReadable, NotificationChain msgs)
+  {
+    org.xtext.imt.browserautomation.browserAutomation.Readable oldReadable = readable;
+    readable = newReadable;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BrowserAutomationPackage.SELECTOR__READABLE, oldReadable, newReadable);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReadable(org.xtext.imt.browserautomation.browserAutomation.Readable newReadable)
+  {
+    if (newReadable != readable)
+    {
+      NotificationChain msgs = null;
+      if (readable != null)
+        msgs = ((InternalEObject)readable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BrowserAutomationPackage.SELECTOR__READABLE, null, msgs);
+      if (newReadable != null)
+        msgs = ((InternalEObject)newReadable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BrowserAutomationPackage.SELECTOR__READABLE, null, msgs);
+      msgs = basicSetReadable(newReadable, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BrowserAutomationPackage.SELECTOR__READABLE, newReadable, newReadable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<PARAMS> getParams()
+  {
+    if (params == null)
+    {
+      params = new EObjectContainmentEList<PARAMS>(PARAMS.class, this, BrowserAutomationPackage.SELECTOR__PARAMS);
+    }
+    return params;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getNumber()
+  {
+    return number;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNumber(int newNumber)
+  {
+    int oldNumber = number;
+    number = newNumber;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BrowserAutomationPackage.SELECTOR__NUMBER, oldNumber, number));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BrowserAutomationPackage.SELECTOR__READABLE:
+        return basicSetReadable(null, msgs);
+      case BrowserAutomationPackage.SELECTOR__PARAMS:
+        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case BrowserAutomationPackage.SELECTOR__READABLE:
+        return getReadable();
+      case BrowserAutomationPackage.SELECTOR__PARAMS:
+        return getParams();
+      case BrowserAutomationPackage.SELECTOR__NUMBER:
+        return getNumber();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case BrowserAutomationPackage.SELECTOR__READABLE:
+        setReadable((org.xtext.imt.browserautomation.browserAutomation.Readable)newValue);
+        return;
+      case BrowserAutomationPackage.SELECTOR__PARAMS:
+        getParams().clear();
+        getParams().addAll((Collection<? extends PARAMS>)newValue);
+        return;
+      case BrowserAutomationPackage.SELECTOR__NUMBER:
+        setNumber((Integer)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case BrowserAutomationPackage.SELECTOR__READABLE:
+        setReadable((org.xtext.imt.browserautomation.browserAutomation.Readable)null);
+        return;
+      case BrowserAutomationPackage.SELECTOR__PARAMS:
+        getParams().clear();
+        return;
+      case BrowserAutomationPackage.SELECTOR__NUMBER:
+        setNumber(NUMBER_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case BrowserAutomationPackage.SELECTOR__READABLE:
+        return readable != null;
+      case BrowserAutomationPackage.SELECTOR__PARAMS:
+        return params != null && !params.isEmpty();
+      case BrowserAutomationPackage.SELECTOR__NUMBER:
+        return number != NUMBER_EDEFAULT;
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (number: ");
+    result.append(number);
+    result.append(')');
+    return result.toString();
   }
 
 } //SELECTORImpl

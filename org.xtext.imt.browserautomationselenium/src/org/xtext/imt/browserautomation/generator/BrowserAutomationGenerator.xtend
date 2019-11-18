@@ -30,6 +30,9 @@ import org.xtext.imt.browserautomation.browserAutomation.IMAGE
 import org.xtext.imt.browserautomation.browserAutomation.Insertable
 import org.xtext.imt.browserautomation.browserAutomation.Verifiable
 import org.xtext.imt.browserautomation.browserAutomation.Readable
+import org.xtext.imt.browserautomation.browserAutomation.RefElement
+import org.xtext.imt.browserautomation.browserAutomation.SELECTOR
+import org.xtext.imt.browserautomation.browserAutomation.PARAMS
 
 /**
  * Generates code from your model files on save.
@@ -60,11 +63,15 @@ class BrowserAutomationGenerator extends AbstractGenerator {
 		import org.openqa.selenium.support.ui.WebDriverWait;
 		import static org.junit.jupiter.api.Assertions.assertNotNull;
 		import org.junit.jupiter.api.Test;
+		import java.util.HashMap;
 		
 		public class «test.name» {
 			
 			@Test
-			public void test(){									
+			public void test(){		
+				
+				HashMap<String, WebElement> refsElement = new HashMap<String, WebElement>();
+											
 				«FOR instruction : test.instructions»
 					«instruction.compileInstruction»
 				«ENDFOR» 
@@ -74,7 +81,19 @@ class BrowserAutomationGenerator extends AbstractGenerator {
 	'''
 
 	def dispatch compileInstruction(AFFECTATION affectation) '''
-		instructions not defined yet «affectation.toString»
+		WebElement «affectation.name» = driver.findElement(By.xpath("//*[text()='«affectation.selector.compileSelector»']"));
+		refsElement.put("«affectation.name»",«affectation.name»);
+		assertNotNull(refsElement.get("«affectation.name»"));
+	'''
+	
+	def compileSelector(SELECTOR selector) '''
+		«FOR param : selector.params»
+				«param.compileParam»
+		«ENDFOR» 
+	'''
+	
+	def compileParam(PARAMS param) '''
+		compile params not defined yet key :  «param.key» value «param.value»
 	'''
 
 	def dispatch compileInstruction(OPEN_BROWSER instructionOpenBrowser) '''
@@ -87,12 +106,25 @@ class BrowserAutomationGenerator extends AbstractGenerator {
 	'''
 
 	def dispatch compileInstruction(CLICK_ON instructionClickOn) '''
+		«IF instructionClickOn.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.BUTTONImpl" 
+		 || instructionClickOn.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.LINKImpl" 
+		 || instructionClickOn.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.IMAGEImpl"»		
 		driver.findElement(By.partialLinkText("«instructionClickOn.element.compileClickable»")).click();
+		«ELSE»
+		«instructionClickOn.element.compileElement».click();
+		«ENDIF»	
 	'''
 
 	def dispatch compileInstruction(VERIFY_THAT instructionVerifyThat) '''
+		«IF instructionVerifyThat.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.TEXTImpl" 
+		 || instructionVerifyThat.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.LINKImpl" 
+		 || instructionVerifyThat.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.IMAGEImpl" 
+		 || instructionVerifyThat.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.BUTTONImpl"»	
 		WebElement textDemo«i» = driver.findElement(By.xpath("//*[text()='«instructionVerifyThat.element.compileVerifiable»']"));
 		assertNotNull(textDemo«i++»);
+		«ELSE»
+		assertNotNull(«instructionVerifyThat.element.compileElement»);
+		«ENDIF»						
 	'''
 
 	def dispatch compileInstruction(INSERT_ON instructionInsertOn) '''
@@ -131,6 +163,5 @@ class BrowserAutomationGenerator extends AbstractGenerator {
 
 	def dispatch compileElement(LINK f) '''«f.url»'''
 
-	def dispatch compileElement(IMAGE f) '''«f.name»'''
-
+	def dispatch compileElement(RefElement f) '''refsElement.get("«f.ref.name»")'''
 }

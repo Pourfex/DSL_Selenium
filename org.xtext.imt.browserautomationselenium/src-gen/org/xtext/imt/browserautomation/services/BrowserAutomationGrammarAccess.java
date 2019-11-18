@@ -152,7 +152,8 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.imt.browserautomation.BrowserAutomation.SELECTOR");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cFindKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cReadableParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cReadableAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cReadableReadableParserRuleCall_1_0 = (RuleCall)cReadableAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cParamsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cParamsPARAMSParserRuleCall_3_0 = (RuleCall)cParamsAssignment_3.eContents().get(0);
@@ -163,17 +164,20 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 		private final Keyword cRightSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//SELECTOR:
-		//	'find' Readable '{' params+=PARAMS '}' '[' number=INT ']';
+		//	'find' readable=Readable '{' params+=PARAMS '}' '[' number=INT ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'find' Readable '{' params+=PARAMS '}' '[' number=INT ']'
+		//'find' readable=Readable '{' params+=PARAMS '}' '[' number=INT ']'
 		public Group getGroup() { return cGroup; }
 		
 		//'find'
 		public Keyword getFindKeyword_0() { return cFindKeyword_0; }
 		
+		//readable=Readable
+		public Assignment getReadableAssignment_1() { return cReadableAssignment_1; }
+		
 		//Readable
-		public RuleCall getReadableParserRuleCall_1() { return cReadableParserRuleCall_1; }
+		public RuleCall getReadableReadableParserRuleCall_1_0() { return cReadableReadableParserRuleCall_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -897,7 +901,7 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 	}
 	
 	//SELECTOR:
-	//	'find' Readable '{' params+=PARAMS '}' '[' number=INT ']';
+	//	'find' readable=Readable '{' params+=PARAMS '}' '[' number=INT ']';
 	public SELECTORElements getSELECTORAccess() {
 		return pSELECTOR;
 	}

@@ -13,7 +13,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="selector" eType="#//SELECTOR"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SELECTOR"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SELECTOR">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="readable" eType="#//Readable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//PARAMS" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RefElement" eSuperTypes="#//Verifiable #//Clickable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//AFFECTATION"/>
   </eClassifiers>
@@ -50,11 +56,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//Readable"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Readable" eSuperTypes="#//SELECTOR">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
-        eType="#//PARAMS" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Readable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Insertable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Verifiable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Clickable"/>

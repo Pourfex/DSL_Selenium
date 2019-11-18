@@ -32,6 +32,7 @@ import org.xtext.imt.browserautomation.browserAutomation.PARAMS;
 import org.xtext.imt.browserautomation.browserAutomation.READ_ON;
 import org.xtext.imt.browserautomation.browserAutomation.RefElement;
 import org.xtext.imt.browserautomation.browserAutomation.SEARCH_FIELD;
+import org.xtext.imt.browserautomation.browserAutomation.SELECTOR;
 import org.xtext.imt.browserautomation.browserAutomation.TEXT;
 import org.xtext.imt.browserautomation.browserAutomation.Test;
 import org.xtext.imt.browserautomation.browserAutomation.VERIFY_THAT;
@@ -55,18 +56,8 @@ public class BrowserAutomationSemanticSequencer extends AbstractDelegatingSemant
 				sequence_AFFECTATION(context, (AFFECTATION) semanticObject); 
 				return; 
 			case BrowserAutomationPackage.BUTTON:
-				if (rule == grammarAccess.getReadableRule()
-						|| rule == grammarAccess.getVerifiableRule()
-						|| rule == grammarAccess.getClickableRule()
-						|| rule == grammarAccess.getBUTTONRule()) {
-					sequence_BUTTON(context, (BUTTON) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getSELECTORRule()) {
-					sequence_BUTTON_SELECTOR(context, (BUTTON) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_BUTTON(context, (BUTTON) semanticObject); 
+				return; 
 			case BrowserAutomationPackage.CHECKBOX:
 				sequence_CHECKBOX(context, (CHECKBOX) semanticObject); 
 				return; 
@@ -95,18 +86,8 @@ public class BrowserAutomationSemanticSequencer extends AbstractDelegatingSemant
 				sequence_INSERT_ON(context, (INSERT_ON) semanticObject); 
 				return; 
 			case BrowserAutomationPackage.LINK:
-				if (rule == grammarAccess.getReadableRule()
-						|| rule == grammarAccess.getVerifiableRule()
-						|| rule == grammarAccess.getClickableRule()
-						|| rule == grammarAccess.getLINKRule()) {
-					sequence_LINK(context, (LINK) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getSELECTORRule()) {
-					sequence_LINK_SELECTOR(context, (LINK) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_LINK(context, (LINK) semanticObject); 
+				return; 
 			case BrowserAutomationPackage.OPEN_BROWSER:
 				sequence_OPEN_BROWSER(context, (OPEN_BROWSER) semanticObject); 
 				return; 
@@ -122,18 +103,12 @@ public class BrowserAutomationSemanticSequencer extends AbstractDelegatingSemant
 			case BrowserAutomationPackage.SEARCH_FIELD:
 				sequence_SEARCH_FIELD(context, (SEARCH_FIELD) semanticObject); 
 				return; 
+			case BrowserAutomationPackage.SELECTOR:
+				sequence_SELECTOR(context, (SELECTOR) semanticObject); 
+				return; 
 			case BrowserAutomationPackage.TEXT:
-				if (rule == grammarAccess.getSELECTORRule()) {
-					sequence_SELECTOR_TEXT(context, (TEXT) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getReadableRule()
-						|| rule == grammarAccess.getVerifiableRule()
-						|| rule == grammarAccess.getTEXTRule()) {
-					sequence_TEXT(context, (TEXT) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_TEXT(context, (TEXT) semanticObject); 
+				return; 
 			case BrowserAutomationPackage.TEST:
 				sequence_Test(context, (Test) semanticObject); 
 				return; 
@@ -185,18 +160,6 @@ public class BrowserAutomationSemanticSequencer extends AbstractDelegatingSemant
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBUTTONAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SELECTOR returns BUTTON
-	 *
-	 * Constraint:
-	 *     (name=STRING params+=PARAMS number=INT)
-	 */
-	protected void sequence_BUTTON_SELECTOR(ISerializationContext context, BUTTON semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -378,18 +341,6 @@ public class BrowserAutomationSemanticSequencer extends AbstractDelegatingSemant
 	
 	/**
 	 * Contexts:
-	 *     SELECTOR returns LINK
-	 *
-	 * Constraint:
-	 *     (url=STRING params+=PARAMS number=INT)
-	 */
-	protected void sequence_LINK_SELECTOR(ISerializationContext context, LINK semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Instruction returns OPEN_BROWSER
 	 *     OPEN_BROWSER returns OPEN_BROWSER
 	 *
@@ -482,12 +433,12 @@ public class BrowserAutomationSemanticSequencer extends AbstractDelegatingSemant
 	
 	/**
 	 * Contexts:
-	 *     SELECTOR returns TEXT
+	 *     SELECTOR returns SELECTOR
 	 *
 	 * Constraint:
-	 *     (name=STRING params+=PARAMS number=INT)
+	 *     (readable=Readable params+=PARAMS number=INT)
 	 */
-	protected void sequence_SELECTOR_TEXT(ISerializationContext context, TEXT semanticObject) {
+	protected void sequence_SELECTOR(ISerializationContext context, SELECTOR semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

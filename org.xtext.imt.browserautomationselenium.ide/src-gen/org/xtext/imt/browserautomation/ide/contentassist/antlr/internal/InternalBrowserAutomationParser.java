@@ -3760,25 +3760,31 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__SELECTOR__Group__1__Impl"
-    // InternalBrowserAutomation.g:1190:1: rule__SELECTOR__Group__1__Impl : ( ruleReadable ) ;
+    // InternalBrowserAutomation.g:1190:1: rule__SELECTOR__Group__1__Impl : ( ( rule__SELECTOR__ReadableAssignment_1 ) ) ;
     public final void rule__SELECTOR__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:1194:1: ( ( ruleReadable ) )
-            // InternalBrowserAutomation.g:1195:1: ( ruleReadable )
+            // InternalBrowserAutomation.g:1194:1: ( ( ( rule__SELECTOR__ReadableAssignment_1 ) ) )
+            // InternalBrowserAutomation.g:1195:1: ( ( rule__SELECTOR__ReadableAssignment_1 ) )
             {
-            // InternalBrowserAutomation.g:1195:1: ( ruleReadable )
-            // InternalBrowserAutomation.g:1196:2: ruleReadable
+            // InternalBrowserAutomation.g:1195:1: ( ( rule__SELECTOR__ReadableAssignment_1 ) )
+            // InternalBrowserAutomation.g:1196:2: ( rule__SELECTOR__ReadableAssignment_1 )
             {
-             before(grammarAccess.getSELECTORAccess().getReadableParserRuleCall_1()); 
+             before(grammarAccess.getSELECTORAccess().getReadableAssignment_1()); 
+            // InternalBrowserAutomation.g:1197:2: ( rule__SELECTOR__ReadableAssignment_1 )
+            // InternalBrowserAutomation.g:1197:3: rule__SELECTOR__ReadableAssignment_1
+            {
             pushFollow(FOLLOW_2);
-            ruleReadable();
+            rule__SELECTOR__ReadableAssignment_1();
 
             state._fsp--;
 
-             after(grammarAccess.getSELECTORAccess().getReadableParserRuleCall_1()); 
+
+            }
+
+             after(grammarAccess.getSELECTORAccess().getReadableAssignment_1()); 
 
             }
 
@@ -7657,18 +7663,59 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
     // $ANTLR end "rule__AFFECTATION__SelectorAssignment_3"
 
 
+    // $ANTLR start "rule__SELECTOR__ReadableAssignment_1"
+    // InternalBrowserAutomation.g:2534:1: rule__SELECTOR__ReadableAssignment_1 : ( ruleReadable ) ;
+    public final void rule__SELECTOR__ReadableAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBrowserAutomation.g:2538:1: ( ( ruleReadable ) )
+            // InternalBrowserAutomation.g:2539:2: ( ruleReadable )
+            {
+            // InternalBrowserAutomation.g:2539:2: ( ruleReadable )
+            // InternalBrowserAutomation.g:2540:3: ruleReadable
+            {
+             before(grammarAccess.getSELECTORAccess().getReadableReadableParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleReadable();
+
+            state._fsp--;
+
+             after(grammarAccess.getSELECTORAccess().getReadableReadableParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SELECTOR__ReadableAssignment_1"
+
+
     // $ANTLR start "rule__SELECTOR__ParamsAssignment_3"
-    // InternalBrowserAutomation.g:2534:1: rule__SELECTOR__ParamsAssignment_3 : ( rulePARAMS ) ;
+    // InternalBrowserAutomation.g:2549:1: rule__SELECTOR__ParamsAssignment_3 : ( rulePARAMS ) ;
     public final void rule__SELECTOR__ParamsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2538:1: ( ( rulePARAMS ) )
-            // InternalBrowserAutomation.g:2539:2: ( rulePARAMS )
+            // InternalBrowserAutomation.g:2553:1: ( ( rulePARAMS ) )
+            // InternalBrowserAutomation.g:2554:2: ( rulePARAMS )
             {
-            // InternalBrowserAutomation.g:2539:2: ( rulePARAMS )
-            // InternalBrowserAutomation.g:2540:3: rulePARAMS
+            // InternalBrowserAutomation.g:2554:2: ( rulePARAMS )
+            // InternalBrowserAutomation.g:2555:3: rulePARAMS
             {
              before(grammarAccess.getSELECTORAccess().getParamsPARAMSParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -7699,17 +7746,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__SELECTOR__NumberAssignment_6"
-    // InternalBrowserAutomation.g:2549:1: rule__SELECTOR__NumberAssignment_6 : ( RULE_INT ) ;
+    // InternalBrowserAutomation.g:2564:1: rule__SELECTOR__NumberAssignment_6 : ( RULE_INT ) ;
     public final void rule__SELECTOR__NumberAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2553:1: ( ( RULE_INT ) )
-            // InternalBrowserAutomation.g:2554:2: ( RULE_INT )
+            // InternalBrowserAutomation.g:2568:1: ( ( RULE_INT ) )
+            // InternalBrowserAutomation.g:2569:2: ( RULE_INT )
             {
-            // InternalBrowserAutomation.g:2554:2: ( RULE_INT )
-            // InternalBrowserAutomation.g:2555:3: RULE_INT
+            // InternalBrowserAutomation.g:2569:2: ( RULE_INT )
+            // InternalBrowserAutomation.g:2570:3: RULE_INT
             {
              before(grammarAccess.getSELECTORAccess().getNumberINTTerminalRuleCall_6_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -7736,21 +7783,21 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__RefElement__RefAssignment"
-    // InternalBrowserAutomation.g:2564:1: rule__RefElement__RefAssignment : ( ( RULE_ID ) ) ;
+    // InternalBrowserAutomation.g:2579:1: rule__RefElement__RefAssignment : ( ( RULE_ID ) ) ;
     public final void rule__RefElement__RefAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2568:1: ( ( ( RULE_ID ) ) )
-            // InternalBrowserAutomation.g:2569:2: ( ( RULE_ID ) )
+            // InternalBrowserAutomation.g:2583:1: ( ( ( RULE_ID ) ) )
+            // InternalBrowserAutomation.g:2584:2: ( ( RULE_ID ) )
             {
-            // InternalBrowserAutomation.g:2569:2: ( ( RULE_ID ) )
-            // InternalBrowserAutomation.g:2570:3: ( RULE_ID )
+            // InternalBrowserAutomation.g:2584:2: ( ( RULE_ID ) )
+            // InternalBrowserAutomation.g:2585:3: ( RULE_ID )
             {
              before(grammarAccess.getRefElementAccess().getRefAFFECTATIONCrossReference_0()); 
-            // InternalBrowserAutomation.g:2571:3: ( RULE_ID )
-            // InternalBrowserAutomation.g:2572:4: RULE_ID
+            // InternalBrowserAutomation.g:2586:3: ( RULE_ID )
+            // InternalBrowserAutomation.g:2587:4: RULE_ID
             {
              before(grammarAccess.getRefElementAccess().getRefAFFECTATIONIDTerminalRuleCall_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -7781,17 +7828,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__GO_TO_URL__UrlAssignment_1"
-    // InternalBrowserAutomation.g:2583:1: rule__GO_TO_URL__UrlAssignment_1 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2598:1: rule__GO_TO_URL__UrlAssignment_1 : ( RULE_STRING ) ;
     public final void rule__GO_TO_URL__UrlAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2587:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2588:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2602:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2603:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2588:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2589:3: RULE_STRING
+            // InternalBrowserAutomation.g:2603:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2604:3: RULE_STRING
             {
              before(grammarAccess.getGO_TO_URLAccess().getUrlSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -7818,17 +7865,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__CLICK_ON__ElementAssignment_1"
-    // InternalBrowserAutomation.g:2598:1: rule__CLICK_ON__ElementAssignment_1 : ( ruleClickable ) ;
+    // InternalBrowserAutomation.g:2613:1: rule__CLICK_ON__ElementAssignment_1 : ( ruleClickable ) ;
     public final void rule__CLICK_ON__ElementAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2602:1: ( ( ruleClickable ) )
-            // InternalBrowserAutomation.g:2603:2: ( ruleClickable )
+            // InternalBrowserAutomation.g:2617:1: ( ( ruleClickable ) )
+            // InternalBrowserAutomation.g:2618:2: ( ruleClickable )
             {
-            // InternalBrowserAutomation.g:2603:2: ( ruleClickable )
-            // InternalBrowserAutomation.g:2604:3: ruleClickable
+            // InternalBrowserAutomation.g:2618:2: ( ruleClickable )
+            // InternalBrowserAutomation.g:2619:3: ruleClickable
             {
              before(grammarAccess.getCLICK_ONAccess().getElementClickableParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7859,17 +7906,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__VERIFY_THAT__ElementAssignment_1"
-    // InternalBrowserAutomation.g:2613:1: rule__VERIFY_THAT__ElementAssignment_1 : ( ruleVerifiable ) ;
+    // InternalBrowserAutomation.g:2628:1: rule__VERIFY_THAT__ElementAssignment_1 : ( ruleVerifiable ) ;
     public final void rule__VERIFY_THAT__ElementAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2617:1: ( ( ruleVerifiable ) )
-            // InternalBrowserAutomation.g:2618:2: ( ruleVerifiable )
+            // InternalBrowserAutomation.g:2632:1: ( ( ruleVerifiable ) )
+            // InternalBrowserAutomation.g:2633:2: ( ruleVerifiable )
             {
-            // InternalBrowserAutomation.g:2618:2: ( ruleVerifiable )
-            // InternalBrowserAutomation.g:2619:3: ruleVerifiable
+            // InternalBrowserAutomation.g:2633:2: ( ruleVerifiable )
+            // InternalBrowserAutomation.g:2634:3: ruleVerifiable
             {
              before(grammarAccess.getVERIFY_THATAccess().getElementVerifiableParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7900,17 +7947,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__INSERT_ON__ElementAssignment_1"
-    // InternalBrowserAutomation.g:2628:1: rule__INSERT_ON__ElementAssignment_1 : ( ruleInsertable ) ;
+    // InternalBrowserAutomation.g:2643:1: rule__INSERT_ON__ElementAssignment_1 : ( ruleInsertable ) ;
     public final void rule__INSERT_ON__ElementAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2632:1: ( ( ruleInsertable ) )
-            // InternalBrowserAutomation.g:2633:2: ( ruleInsertable )
+            // InternalBrowserAutomation.g:2647:1: ( ( ruleInsertable ) )
+            // InternalBrowserAutomation.g:2648:2: ( ruleInsertable )
             {
-            // InternalBrowserAutomation.g:2633:2: ( ruleInsertable )
-            // InternalBrowserAutomation.g:2634:3: ruleInsertable
+            // InternalBrowserAutomation.g:2648:2: ( ruleInsertable )
+            // InternalBrowserAutomation.g:2649:3: ruleInsertable
             {
              before(grammarAccess.getINSERT_ONAccess().getElementInsertableParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7941,21 +7988,21 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__INSERT_ON__DataAssignment_2"
-    // InternalBrowserAutomation.g:2643:1: rule__INSERT_ON__DataAssignment_2 : ( ( rule__INSERT_ON__DataAlternatives_2_0 ) ) ;
+    // InternalBrowserAutomation.g:2658:1: rule__INSERT_ON__DataAssignment_2 : ( ( rule__INSERT_ON__DataAlternatives_2_0 ) ) ;
     public final void rule__INSERT_ON__DataAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2647:1: ( ( ( rule__INSERT_ON__DataAlternatives_2_0 ) ) )
-            // InternalBrowserAutomation.g:2648:2: ( ( rule__INSERT_ON__DataAlternatives_2_0 ) )
+            // InternalBrowserAutomation.g:2662:1: ( ( ( rule__INSERT_ON__DataAlternatives_2_0 ) ) )
+            // InternalBrowserAutomation.g:2663:2: ( ( rule__INSERT_ON__DataAlternatives_2_0 ) )
             {
-            // InternalBrowserAutomation.g:2648:2: ( ( rule__INSERT_ON__DataAlternatives_2_0 ) )
-            // InternalBrowserAutomation.g:2649:3: ( rule__INSERT_ON__DataAlternatives_2_0 )
+            // InternalBrowserAutomation.g:2663:2: ( ( rule__INSERT_ON__DataAlternatives_2_0 ) )
+            // InternalBrowserAutomation.g:2664:3: ( rule__INSERT_ON__DataAlternatives_2_0 )
             {
              before(grammarAccess.getINSERT_ONAccess().getDataAlternatives_2_0()); 
-            // InternalBrowserAutomation.g:2650:3: ( rule__INSERT_ON__DataAlternatives_2_0 )
-            // InternalBrowserAutomation.g:2650:4: rule__INSERT_ON__DataAlternatives_2_0
+            // InternalBrowserAutomation.g:2665:3: ( rule__INSERT_ON__DataAlternatives_2_0 )
+            // InternalBrowserAutomation.g:2665:4: rule__INSERT_ON__DataAlternatives_2_0
             {
             pushFollow(FOLLOW_2);
             rule__INSERT_ON__DataAlternatives_2_0();
@@ -7988,17 +8035,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__CHECK_BOXE__ElementAssignment_1_0"
-    // InternalBrowserAutomation.g:2658:1: rule__CHECK_BOXE__ElementAssignment_1_0 : ( ruleCHECKBOX ) ;
+    // InternalBrowserAutomation.g:2673:1: rule__CHECK_BOXE__ElementAssignment_1_0 : ( ruleCHECKBOX ) ;
     public final void rule__CHECK_BOXE__ElementAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2662:1: ( ( ruleCHECKBOX ) )
-            // InternalBrowserAutomation.g:2663:2: ( ruleCHECKBOX )
+            // InternalBrowserAutomation.g:2677:1: ( ( ruleCHECKBOX ) )
+            // InternalBrowserAutomation.g:2678:2: ( ruleCHECKBOX )
             {
-            // InternalBrowserAutomation.g:2663:2: ( ruleCHECKBOX )
-            // InternalBrowserAutomation.g:2664:3: ruleCHECKBOX
+            // InternalBrowserAutomation.g:2678:2: ( ruleCHECKBOX )
+            // InternalBrowserAutomation.g:2679:3: ruleCHECKBOX
             {
              before(grammarAccess.getCHECK_BOXEAccess().getElementCHECKBOXParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -8029,17 +8076,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__CHOOSE_COMBOBOX__ElementAssignment_1"
-    // InternalBrowserAutomation.g:2673:1: rule__CHOOSE_COMBOBOX__ElementAssignment_1 : ( ruleCOMBOBOX ) ;
+    // InternalBrowserAutomation.g:2688:1: rule__CHOOSE_COMBOBOX__ElementAssignment_1 : ( ruleCOMBOBOX ) ;
     public final void rule__CHOOSE_COMBOBOX__ElementAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2677:1: ( ( ruleCOMBOBOX ) )
-            // InternalBrowserAutomation.g:2678:2: ( ruleCOMBOBOX )
+            // InternalBrowserAutomation.g:2692:1: ( ( ruleCOMBOBOX ) )
+            // InternalBrowserAutomation.g:2693:2: ( ruleCOMBOBOX )
             {
-            // InternalBrowserAutomation.g:2678:2: ( ruleCOMBOBOX )
-            // InternalBrowserAutomation.g:2679:3: ruleCOMBOBOX
+            // InternalBrowserAutomation.g:2693:2: ( ruleCOMBOBOX )
+            // InternalBrowserAutomation.g:2694:3: ruleCOMBOBOX
             {
              before(grammarAccess.getCHOOSE_COMBOBOXAccess().getElementCOMBOBOXParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8070,17 +8117,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__CHOOSE_COMBOBOX__DataAssignment_3"
-    // InternalBrowserAutomation.g:2688:1: rule__CHOOSE_COMBOBOX__DataAssignment_3 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2703:1: rule__CHOOSE_COMBOBOX__DataAssignment_3 : ( RULE_STRING ) ;
     public final void rule__CHOOSE_COMBOBOX__DataAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2692:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2693:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2707:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2708:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2693:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2694:3: RULE_STRING
+            // InternalBrowserAutomation.g:2708:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2709:3: RULE_STRING
             {
              before(grammarAccess.getCHOOSE_COMBOBOXAccess().getDataSTRINGTerminalRuleCall_3_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -8107,17 +8154,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__READ_ON__ElementAssignment_1"
-    // InternalBrowserAutomation.g:2703:1: rule__READ_ON__ElementAssignment_1 : ( ruleReadable ) ;
+    // InternalBrowserAutomation.g:2718:1: rule__READ_ON__ElementAssignment_1 : ( ruleReadable ) ;
     public final void rule__READ_ON__ElementAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2707:1: ( ( ruleReadable ) )
-            // InternalBrowserAutomation.g:2708:2: ( ruleReadable )
+            // InternalBrowserAutomation.g:2722:1: ( ( ruleReadable ) )
+            // InternalBrowserAutomation.g:2723:2: ( ruleReadable )
             {
-            // InternalBrowserAutomation.g:2708:2: ( ruleReadable )
-            // InternalBrowserAutomation.g:2709:3: ruleReadable
+            // InternalBrowserAutomation.g:2723:2: ( ruleReadable )
+            // InternalBrowserAutomation.g:2724:3: ruleReadable
             {
              before(grammarAccess.getREAD_ONAccess().getElementReadableParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8148,17 +8195,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__COMBOBOX__NameAssignment_1"
-    // InternalBrowserAutomation.g:2718:1: rule__COMBOBOX__NameAssignment_1 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2733:1: rule__COMBOBOX__NameAssignment_1 : ( RULE_STRING ) ;
     public final void rule__COMBOBOX__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2722:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2723:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2737:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2738:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2723:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2724:3: RULE_STRING
+            // InternalBrowserAutomation.g:2738:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2739:3: RULE_STRING
             {
              before(grammarAccess.getCOMBOBOXAccess().getNameSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -8185,17 +8232,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__CHECKBOX__NameAssignment_1"
-    // InternalBrowserAutomation.g:2733:1: rule__CHECKBOX__NameAssignment_1 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2748:1: rule__CHECKBOX__NameAssignment_1 : ( RULE_STRING ) ;
     public final void rule__CHECKBOX__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2737:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2738:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2752:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2753:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2738:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2739:3: RULE_STRING
+            // InternalBrowserAutomation.g:2753:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2754:3: RULE_STRING
             {
              before(grammarAccess.getCHECKBOXAccess().getNameSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -8222,17 +8269,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__SEARCH_FIELD__NameAssignment_1"
-    // InternalBrowserAutomation.g:2748:1: rule__SEARCH_FIELD__NameAssignment_1 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2763:1: rule__SEARCH_FIELD__NameAssignment_1 : ( RULE_STRING ) ;
     public final void rule__SEARCH_FIELD__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2752:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2753:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2767:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2768:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2753:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2754:3: RULE_STRING
+            // InternalBrowserAutomation.g:2768:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2769:3: RULE_STRING
             {
              before(grammarAccess.getSEARCH_FIELDAccess().getNameSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -8259,17 +8306,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__TEXT__NameAssignment_1"
-    // InternalBrowserAutomation.g:2763:1: rule__TEXT__NameAssignment_1 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2778:1: rule__TEXT__NameAssignment_1 : ( RULE_STRING ) ;
     public final void rule__TEXT__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2767:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2768:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2782:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2783:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2768:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2769:3: RULE_STRING
+            // InternalBrowserAutomation.g:2783:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2784:3: RULE_STRING
             {
              before(grammarAccess.getTEXTAccess().getNameSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -8296,17 +8343,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__BUTTON__NameAssignment_1"
-    // InternalBrowserAutomation.g:2778:1: rule__BUTTON__NameAssignment_1 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2793:1: rule__BUTTON__NameAssignment_1 : ( RULE_STRING ) ;
     public final void rule__BUTTON__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2782:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2783:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2797:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2798:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2783:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2784:3: RULE_STRING
+            // InternalBrowserAutomation.g:2798:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2799:3: RULE_STRING
             {
              before(grammarAccess.getBUTTONAccess().getNameSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -8333,17 +8380,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__LINK__UrlAssignment_1"
-    // InternalBrowserAutomation.g:2793:1: rule__LINK__UrlAssignment_1 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2808:1: rule__LINK__UrlAssignment_1 : ( RULE_STRING ) ;
     public final void rule__LINK__UrlAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2797:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2798:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2812:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2813:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2798:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2799:3: RULE_STRING
+            // InternalBrowserAutomation.g:2813:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2814:3: RULE_STRING
             {
              before(grammarAccess.getLINKAccess().getUrlSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -8370,17 +8417,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__IMAGE__NameAssignment_1"
-    // InternalBrowserAutomation.g:2808:1: rule__IMAGE__NameAssignment_1 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2823:1: rule__IMAGE__NameAssignment_1 : ( RULE_STRING ) ;
     public final void rule__IMAGE__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2812:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2813:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2827:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2828:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2813:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2814:3: RULE_STRING
+            // InternalBrowserAutomation.g:2828:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2829:3: RULE_STRING
             {
              before(grammarAccess.getIMAGEAccess().getNameSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -8407,17 +8454,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__IMAGE__ParamsAssignment_2_1"
-    // InternalBrowserAutomation.g:2823:1: rule__IMAGE__ParamsAssignment_2_1 : ( rulePARAMS ) ;
+    // InternalBrowserAutomation.g:2838:1: rule__IMAGE__ParamsAssignment_2_1 : ( rulePARAMS ) ;
     public final void rule__IMAGE__ParamsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2827:1: ( ( rulePARAMS ) )
-            // InternalBrowserAutomation.g:2828:2: ( rulePARAMS )
+            // InternalBrowserAutomation.g:2842:1: ( ( rulePARAMS ) )
+            // InternalBrowserAutomation.g:2843:2: ( rulePARAMS )
             {
-            // InternalBrowserAutomation.g:2828:2: ( rulePARAMS )
-            // InternalBrowserAutomation.g:2829:3: rulePARAMS
+            // InternalBrowserAutomation.g:2843:2: ( rulePARAMS )
+            // InternalBrowserAutomation.g:2844:3: rulePARAMS
             {
              before(grammarAccess.getIMAGEAccess().getParamsPARAMSParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -8448,17 +8495,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__PARAMS__KeyAssignment_0"
-    // InternalBrowserAutomation.g:2838:1: rule__PARAMS__KeyAssignment_0 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2853:1: rule__PARAMS__KeyAssignment_0 : ( RULE_STRING ) ;
     public final void rule__PARAMS__KeyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2842:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2843:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2857:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2858:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2843:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2844:3: RULE_STRING
+            // InternalBrowserAutomation.g:2858:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2859:3: RULE_STRING
             {
              before(grammarAccess.getPARAMSAccess().getKeySTRINGTerminalRuleCall_0_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -8485,17 +8532,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__PARAMS__ValueAssignment_2"
-    // InternalBrowserAutomation.g:2853:1: rule__PARAMS__ValueAssignment_2 : ( RULE_STRING ) ;
+    // InternalBrowserAutomation.g:2868:1: rule__PARAMS__ValueAssignment_2 : ( RULE_STRING ) ;
     public final void rule__PARAMS__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBrowserAutomation.g:2857:1: ( ( RULE_STRING ) )
-            // InternalBrowserAutomation.g:2858:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2872:1: ( ( RULE_STRING ) )
+            // InternalBrowserAutomation.g:2873:2: ( RULE_STRING )
             {
-            // InternalBrowserAutomation.g:2858:2: ( RULE_STRING )
-            // InternalBrowserAutomation.g:2859:3: RULE_STRING
+            // InternalBrowserAutomation.g:2873:2: ( RULE_STRING )
+            // InternalBrowserAutomation.g:2874:3: RULE_STRING
             {
              before(grammarAccess.getPARAMSAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 

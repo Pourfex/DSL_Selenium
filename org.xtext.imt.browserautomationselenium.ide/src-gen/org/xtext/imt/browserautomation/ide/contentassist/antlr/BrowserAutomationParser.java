@@ -62,6 +62,7 @@ public class BrowserAutomationParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTestAccess().getInstructionsAssignment_3(), "rule__Test__InstructionsAssignment_3");
 			builder.put(grammarAccess.getAFFECTATIONAccess().getNameAssignment_1(), "rule__AFFECTATION__NameAssignment_1");
 			builder.put(grammarAccess.getAFFECTATIONAccess().getSelectorAssignment_3(), "rule__AFFECTATION__SelectorAssignment_3");
+			builder.put(grammarAccess.getSELECTORAccess().getReadableAssignment_1(), "rule__SELECTOR__ReadableAssignment_1");
 			builder.put(grammarAccess.getSELECTORAccess().getParamsAssignment_3(), "rule__SELECTOR__ParamsAssignment_3");
 			builder.put(grammarAccess.getSELECTORAccess().getNumberAssignment_6(), "rule__SELECTOR__NumberAssignment_6");
 			builder.put(grammarAccess.getRefElementAccess().getRefAssignment(), "rule__RefElement__RefAssignment");

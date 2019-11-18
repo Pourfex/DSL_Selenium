@@ -161,13 +161,40 @@ public interface BrowserAutomationPackage extends EPackage
   int SELECTOR = 3;
 
   /**
+   * The feature id for the '<em><b>Readable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR__READABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR__PARAMS = 1;
+
+  /**
+   * The feature id for the '<em><b>Number</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR__NUMBER = 2;
+
+  /**
    * The number of structural features of the '<em>SELECTOR</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECTOR_FEATURE_COUNT = 0;
+  int SELECTOR_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.imt.browserautomation.browserAutomation.impl.VerifiableImpl <em>Verifiable</em>}' class.
@@ -488,31 +515,13 @@ public interface BrowserAutomationPackage extends EPackage
   int READABLE = 14;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int READABLE__PARAMS = SELECTOR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Number</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int READABLE__NUMBER = SELECTOR_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Readable</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int READABLE_FEATURE_COUNT = SELECTOR_FEATURE_COUNT + 2;
+  int READABLE_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.imt.browserautomation.browserAutomation.impl.InsertableImpl <em>Insertable</em>}' class.
@@ -647,24 +656,6 @@ public interface BrowserAutomationPackage extends EPackage
   int TEXT = 21;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEXT__PARAMS = READABLE__PARAMS;
-
-  /**
-   * The feature id for the '<em><b>Number</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEXT__NUMBER = READABLE__NUMBER;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -693,24 +684,6 @@ public interface BrowserAutomationPackage extends EPackage
   int BUTTON = 22;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__PARAMS = READABLE__PARAMS;
-
-  /**
-   * The feature id for the '<em><b>Number</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__NUMBER = READABLE__NUMBER;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -737,24 +710,6 @@ public interface BrowserAutomationPackage extends EPackage
    * @generated
    */
   int LINK = 23;
-
-  /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LINK__PARAMS = READABLE__PARAMS;
-
-  /**
-   * The feature id for the '<em><b>Number</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LINK__NUMBER = READABLE__NUMBER;
 
   /**
    * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -932,6 +887,39 @@ public interface BrowserAutomationPackage extends EPackage
    * @generated
    */
   EClass getSELECTOR();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getReadable <em>Readable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Readable</em>'.
+   * @see org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getReadable()
+   * @see #getSELECTOR()
+   * @generated
+   */
+  EReference getSELECTOR_Readable();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getParams()
+   * @see #getSELECTOR()
+   * @generated
+   */
+  EReference getSELECTOR_Params();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getNumber <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Number</em>'.
+   * @see org.xtext.imt.browserautomation.browserAutomation.SELECTOR#getNumber()
+   * @see #getSELECTOR()
+   * @generated
+   */
+  EAttribute getSELECTOR_Number();
 
   /**
    * Returns the meta object for class '{@link org.xtext.imt.browserautomation.browserAutomation.RefElement <em>Ref Element</em>}'.
@@ -1163,28 +1151,6 @@ public interface BrowserAutomationPackage extends EPackage
    * @generated
    */
   EClass getReadable();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.imt.browserautomation.browserAutomation.Readable#getParams <em>Params</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Params</em>'.
-   * @see org.xtext.imt.browserautomation.browserAutomation.Readable#getParams()
-   * @see #getReadable()
-   * @generated
-   */
-  EReference getReadable_Params();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.imt.browserautomation.browserAutomation.Readable#getNumber <em>Number</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Number</em>'.
-   * @see org.xtext.imt.browserautomation.browserAutomation.Readable#getNumber()
-   * @see #getReadable()
-   * @generated
-   */
-  EAttribute getReadable_Number();
 
   /**
    * Returns the meta object for class '{@link org.xtext.imt.browserautomation.browserAutomation.Insertable <em>Insertable</em>}'.
@@ -1502,6 +1468,30 @@ public interface BrowserAutomationPackage extends EPackage
     EClass SELECTOR = eINSTANCE.getSELECTOR();
 
     /**
+     * The meta object literal for the '<em><b>Readable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECTOR__READABLE = eINSTANCE.getSELECTOR_Readable();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECTOR__PARAMS = eINSTANCE.getSELECTOR_Params();
+
+    /**
+     * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SELECTOR__NUMBER = eINSTANCE.getSELECTOR_Number();
+
+    /**
      * The meta object literal for the '{@link org.xtext.imt.browserautomation.browserAutomation.impl.RefElementImpl <em>Ref Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1698,22 +1688,6 @@ public interface BrowserAutomationPackage extends EPackage
      * @generated
      */
     EClass READABLE = eINSTANCE.getReadable();
-
-    /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference READABLE__PARAMS = eINSTANCE.getReadable_Params();
-
-    /**
-     * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute READABLE__NUMBER = eINSTANCE.getReadable_Number();
 
     /**
      * The meta object literal for the '{@link org.xtext.imt.browserautomation.browserAutomation.impl.InsertableImpl <em>Insertable</em>}' class.
