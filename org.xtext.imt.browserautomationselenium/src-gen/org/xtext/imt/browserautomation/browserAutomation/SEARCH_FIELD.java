@@ -20,7 +20,7 @@ package org.xtext.imt.browserautomation.browserAutomation;
  * @model
  * @generated
  */
-public interface SEARCH_FIELD extends Insertable
+public interface SEARCH_FIELD extends Insertable, Clickable
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

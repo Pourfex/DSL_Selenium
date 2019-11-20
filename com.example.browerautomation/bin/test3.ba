@@ -1,7 +1,7 @@
-Test 'Test3'   
+Test 'Test3'
 	openBrowser
 	openpage 'http://www.imt-atlantique.fr/fr'
 	clickOn link 'TOUTES LES ACTUALITÉS'
-	clickOn link 'Accueil' 
+	clickOn image 'Accueil'
 	verify link 'Toutes les actualités' 
 end

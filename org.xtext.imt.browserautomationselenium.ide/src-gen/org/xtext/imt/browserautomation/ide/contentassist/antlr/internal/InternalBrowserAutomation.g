@@ -896,9 +896,15 @@ rule__Clickable__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getClickableAccess().getRefElementParserRuleCall_4()); }
+		{ before(grammarAccess.getClickableAccess().getSEARCH_FIELDParserRuleCall_4()); }
+		ruleSEARCH_FIELD
+		{ after(grammarAccess.getClickableAccess().getSEARCH_FIELDParserRuleCall_4()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getClickableAccess().getRefElementParserRuleCall_5()); }
 		ruleRefElement
-		{ after(grammarAccess.getClickableAccess().getRefElementParserRuleCall_4()); }
+		{ after(grammarAccess.getClickableAccess().getRefElementParserRuleCall_5()); }
 	)
 ;
 finally {

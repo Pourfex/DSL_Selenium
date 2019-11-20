@@ -77,7 +77,7 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("import org.openqa.selenium.firefox.FirefoxDriver;");
     _builder.newLine();
-    _builder.append("import org.openqa.selenium.support.ui.ExpectedCondition;");
+    _builder.append("import org.openqa.selenium.support.ui.ExpectedConditions;");
     _builder.newLine();
     _builder.append("import org.openqa.selenium.support.ui.WebDriverWait;");
     _builder.newLine();
@@ -104,9 +104,14 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
     _builder.append("\t\t");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("HashMap<String, WebElement> refsElement = new HashMap<String, WebElement>();");
+    _builder.append("HashMap<String, WebElement> refsElement = new HashMap<>();");
     _builder.newLine();
-    _builder.append("\t\t\t\t\t\t\t\t\t");
+    _builder.append("\t\t");
+    _builder.append("boolean cookiesAlreadyChecked = false;");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.newLine();
     {
       EList<Instruction> _instructions = test.getInstructions();
@@ -133,10 +138,10 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
     _builder.append("WebElement ");
     String _name = affectation.getName();
     _builder.append(_name);
-    _builder.append(" = driver.findElement(By.xpath(\"//*[text()=\'");
+    _builder.append(" = driver.findElement(");
     CharSequence _compileSelector = this.compileSelector(affectation.getSelector());
     _builder.append(_compileSelector);
-    _builder.append("\']\"));");
+    _builder.append(");\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("refsElement.put(\"");
     String _name_1 = affectation.getName();
@@ -169,13 +174,25 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
   
   public CharSequence compileParam(final PARAMS param) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("compile params not defined yet key :  ");
-    String _key = param.getKey();
-    _builder.append(_key);
-    _builder.append(" value ");
-    String _value = param.getValue();
-    _builder.append(_value);
-    _builder.newLineIfNotEmpty();
+    {
+      String _key = param.getKey();
+      boolean _equals = Objects.equal(_key, "class");
+      if (_equals) {
+        _builder.append("By.className(\"");
+        String _value = param.getValue();
+        _builder.append(_value);
+        _builder.append("\")");
+        _builder.newLineIfNotEmpty();
+      } else {
+        _builder.append("compile params not defined yet key :  ");
+        String _key_1 = param.getKey();
+        _builder.append(_key_1);
+        _builder.append(" value ");
+        String _value_1 = param.getValue();
+        _builder.append(_value_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
@@ -193,7 +210,16 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
     _builder.append(_url);
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
-    _builder.append("driver.findElement(By.className(\"eu-cookie-compliance-default-button\")).click(); //ACCEPT COOKIE\t");
+    _builder.newLine();
+    _builder.append("if(!cookiesAlreadyChecked) {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(\"//button[@class=\'agree-button eu-cookie-compliance-default-button\']\"))).click(); //ACCEPT COOKIE\t\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("cookiesAlreadyChecked = true;");
+    _builder.newLine();
+    _builder.append("}\t\t\t");
     _builder.newLine();
     return _builder;
   }
@@ -208,10 +234,20 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
         _builder.append("\")).click();");
         _builder.newLineIfNotEmpty();
       } else {
-        CharSequence _compileElement = this.compileElement(instructionClickOn.getElement());
-        _builder.append(_compileElement);
-        _builder.append(".click();");
-        _builder.newLineIfNotEmpty();
+        String _string = instructionClickOn.getElement().getClass().toString();
+        boolean _equals = Objects.equal(_string, "class org.xtext.imt.browserautomation.browserAutomation.impl.SEARCH_FIELDImpl");
+        if (_equals) {
+          _builder.append("driver.findElement((By.xpath(\"//input[@value=\'");
+          CharSequence _compileClickable_1 = this.compileClickable(instructionClickOn.getElement());
+          _builder.append(_compileClickable_1);
+          _builder.append("\']\"))).click();");
+          _builder.newLineIfNotEmpty();
+        } else {
+          CharSequence _compileElement = this.compileElement(instructionClickOn.getElement());
+          _builder.append(_compileElement);
+          _builder.append(".click();");
+          _builder.newLineIfNotEmpty();
+        }
       }
     }
     return _builder;
@@ -223,10 +259,10 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
       if ((((Objects.equal(instructionVerifyThat.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.TEXTImpl") || Objects.equal(instructionVerifyThat.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.LINKImpl")) || Objects.equal(instructionVerifyThat.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.IMAGEImpl")) || Objects.equal(instructionVerifyThat.getElement().getClass().toString(), "class org.xtext.imt.browserautomation.browserAutomation.impl.BUTTONImpl"))) {
         _builder.append("WebElement textDemo");
         _builder.append(this.i);
-        _builder.append(" = driver.findElement(By.xpath(\"//*[text()=\'");
+        _builder.append(" = driver.findElement(By.xpath(\"//*[contains(text(),\'");
         CharSequence _compileVerifiable = this.compileVerifiable(instructionVerifyThat.getElement());
         _builder.append(_compileVerifiable);
-        _builder.append("\']\"));");
+        _builder.append("\')]\"));");
         _builder.newLineIfNotEmpty();
         _builder.append("assertNotNull(textDemo");
         int _plusPlus = this.i++;
@@ -246,10 +282,10 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
   
   protected CharSequence _compileInstruction(final INSERT_ON instructionInsertOn) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("driver.findElement(By.partialLinkText(\"");
+    _builder.append("driver.findElement((By.xpath(\"//input[@name=\'");
     CharSequence _compileInsertable = this.compileInsertable(instructionInsertOn.getElement());
     _builder.append(_compileInsertable);
-    _builder.append("\")).sendKeys(\"");
+    _builder.append("\']\"))).sendKeys(\"");
     String _data = instructionInsertOn.getData();
     _builder.append(_data);
     _builder.append("\");");
@@ -259,19 +295,51 @@ public class BrowserAutomationGenerator extends AbstractGenerator {
   
   protected CharSequence _compileInstruction(final CHECK_BOXE instructionCheckBoxe) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("instructions not defined yet ");
-    String _string = instructionCheckBoxe.toString();
-    _builder.append(_string);
-    _builder.newLineIfNotEmpty();
+    {
+      EList<CHECKBOX> _element = instructionCheckBoxe.getElement();
+      for(final CHECKBOX checkbox : _element) {
+        _builder.append("driver.findElement(By.xpath(\"//*[contains(text(),\'");
+        CharSequence _compileElement = this.compileElement(checkbox);
+        _builder.append(_compileElement);
+        _builder.append("\')]\")).click();");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
   protected CharSequence _compileInstruction(final CHOOSE_COMBOBOX instructionChooseCombobox) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("instructions not defined yet ");
-    String _string = instructionChooseCombobox.toString();
-    _builder.append(_string);
+    _builder.append("WebElement textDemo");
+    _builder.append(this.i);
+    _builder.append(" = driver.findElement(By.xpath(\"//*[@id=\'");
+    CharSequence _compileElement = this.compileElement(instructionChooseCombobox.getElement());
+    _builder.append(_compileElement);
+    _builder.append("\']\"));");
     _builder.newLineIfNotEmpty();
+    _builder.append("textDemo");
+    int _plusPlus = this.i++;
+    _builder.append(_plusPlus);
+    _builder.append(".click();");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("for (WebElement webElement : driver.findElements(By.xpath(\"//*[contains(text(),\'");
+    String _data = instructionChooseCombobox.getData();
+    _builder.append(_data);
+    _builder.append("\')]\"))) {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("if (webElement.isDisplayed()){");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("webElement.click();");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     return _builder;
   }
   

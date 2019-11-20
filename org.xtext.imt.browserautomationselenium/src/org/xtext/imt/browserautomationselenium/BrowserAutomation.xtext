@@ -58,7 +58,7 @@ Verifiable:
 	TEXT | BUTTON | LINK | IMAGE | RefElement;
 
 Clickable:
-	BUTTON | LINK | IMAGE | COMBOBOX | RefElement;
+	BUTTON | LINK | IMAGE | COMBOBOX | SEARCH_FIELD | RefElement;
 
 COMBOBOX:
 	'combobox' name=STRING;

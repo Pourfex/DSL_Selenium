@@ -59,41 +59,47 @@ class BrowserAutomationGenerator extends AbstractGenerator {
 		import org.openqa.selenium.WebDriver;
 		import org.openqa.selenium.WebElement;
 		import org.openqa.selenium.firefox.FirefoxDriver;
-		import org.openqa.selenium.support.ui.ExpectedCondition;
+		import org.openqa.selenium.support.ui.ExpectedConditions;
 		import org.openqa.selenium.support.ui.WebDriverWait;
 		import static org.junit.jupiter.api.Assertions.assertNotNull;
 		import org.junit.jupiter.api.Test;
 		import java.util.HashMap;
 		
-		public class «test.name» {
+		public class Â«test.nameÂ» {
 			
 			@Test
 			public void test(){		
 				
-				HashMap<String, WebElement> refsElement = new HashMap<String, WebElement>();
-											
-				«FOR instruction : test.instructions»
-					«instruction.compileInstruction»
-				«ENDFOR» 
+				HashMap<String, WebElement> refsElement = new HashMap<>();
+				boolean cookiesAlreadyChecked = false;
+										
+	
+				Â«FOR instruction : test.instructionsÂ»
+					Â«instruction.compileInstructionÂ»
+				Â«ENDFORÂ» 
 				driver.close();
 			}   				
 		}
 	'''
 
 	def dispatch compileInstruction(AFFECTATION affectation) '''
-		WebElement «affectation.name» = driver.findElement(By.xpath("//*[text()='«affectation.selector.compileSelector»']"));
-		refsElement.put("«affectation.name»",«affectation.name»);
-		assertNotNull(refsElement.get("«affectation.name»"));
+		WebElement Â«affectation.nameÂ» = driver.findElement(Â«affectation.selector.compileSelectorÂ»);		
+		refsElement.put("Â«affectation.nameÂ»",Â«affectation.nameÂ»);
+		assertNotNull(refsElement.get("Â«affectation.nameÂ»"));
 	'''
 	
 	def compileSelector(SELECTOR selector) '''
-		«FOR param : selector.params»
-				«param.compileParam»
-		«ENDFOR» 
+		Â«FOR param : selector.paramsÂ»
+				Â«param.compileParamÂ»
+		Â«ENDFORÂ» 
 	'''
 	
 	def compileParam(PARAMS param) '''
-		compile params not defined yet key :  «param.key» value «param.value»
+		Â«IF param.key == "class"Â»
+		By.className("Â«param.valueÂ»")
+		Â«ELSEÂ»
+		compile params not defined yet key :  Â«param.keyÂ» value Â«param.valueÂ»
+		Â«ENDIFÂ»
 	'''
 
 	def dispatch compileInstruction(OPEN_BROWSER instructionOpenBrowser) '''
@@ -101,67 +107,82 @@ class BrowserAutomationGenerator extends AbstractGenerator {
 	'''
 
 	def dispatch compileInstruction(GO_TO_URL instructionGoToUrl) '''
-		driver.get("«instructionGoToUrl.url»");
-		driver.findElement(By.className("eu-cookie-compliance-default-button")).click(); //ACCEPT COOKIE	
+		driver.get("Â«instructionGoToUrl.urlÂ»");
+		
+		if(!cookiesAlreadyChecked) {
+			new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='agree-button eu-cookie-compliance-default-button']"))).click(); //ACCEPT COOKIE		
+			cookiesAlreadyChecked = true;
+		}			
 	'''
 
 	def dispatch compileInstruction(CLICK_ON instructionClickOn) '''
-		«IF instructionClickOn.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.BUTTONImpl" 
+		Â«IF instructionClickOn.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.BUTTONImpl" 
 		 || instructionClickOn.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.LINKImpl" 
-		 || instructionClickOn.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.IMAGEImpl"»		
-		driver.findElement(By.partialLinkText("«instructionClickOn.element.compileClickable»")).click();
-		«ELSE»
-		«instructionClickOn.element.compileElement».click();
-		«ENDIF»	
+		 || instructionClickOn.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.IMAGEImpl"Â»		
+		driver.findElement(By.partialLinkText("Â«instructionClickOn.element.compileClickableÂ»")).click();
+		Â«ELSEIF instructionClickOn.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.SEARCH_FIELDImpl"Â»
+		driver.findElement((By.xpath("//input[@value='Â«instructionClickOn.element.compileClickableÂ»']"))).click();
+		Â«ELSEÂ»
+		Â«instructionClickOn.element.compileElementÂ».click();
+		Â«ENDIFÂ»	
 	'''
 
 	def dispatch compileInstruction(VERIFY_THAT instructionVerifyThat) '''
-		«IF instructionVerifyThat.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.TEXTImpl" 
+		Â«IF instructionVerifyThat.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.TEXTImpl" 
 		 || instructionVerifyThat.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.LINKImpl" 
 		 || instructionVerifyThat.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.IMAGEImpl" 
-		 || instructionVerifyThat.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.BUTTONImpl"»	
-		WebElement textDemo«i» = driver.findElement(By.xpath("//*[text()='«instructionVerifyThat.element.compileVerifiable»']"));
-		assertNotNull(textDemo«i++»);
-		«ELSE»
-		assertNotNull(«instructionVerifyThat.element.compileElement»);
-		«ENDIF»						
+		 || instructionVerifyThat.element.class.toString == "class org.xtext.imt.browserautomation.browserAutomation.impl.BUTTONImpl"Â»	
+		WebElement textDemoÂ«iÂ» = driver.findElement(By.xpath("//*[contains(text(),'Â«instructionVerifyThat.element.compileVerifiableÂ»')]"));
+		assertNotNull(textDemoÂ«i++Â»);
+		Â«ELSEÂ»
+		assertNotNull(Â«instructionVerifyThat.element.compileElementÂ»);
+		Â«ENDIFÂ»						
 	'''
 
 	def dispatch compileInstruction(INSERT_ON instructionInsertOn) '''
-		driver.findElement(By.partialLinkText("«instructionInsertOn.element.compileInsertable»")).sendKeys("«instructionInsertOn.data»");
+		driver.findElement((By.xpath("//input[@name='Â«instructionInsertOn.element.compileInsertableÂ»']"))).sendKeys("Â«instructionInsertOn.dataÂ»");
 	'''
 
 	def dispatch compileInstruction(CHECK_BOXE instructionCheckBoxe) '''
-		instructions not defined yet «instructionCheckBoxe.toString»
+		Â«FOR checkbox : instructionCheckBoxe.elementÂ»
+					driver.findElement(By.xpath("//*[contains(text(),'Â«checkbox.compileElementÂ»')]")).click();
+		Â«ENDFORÂ» 		
 	'''
 
 	def dispatch compileInstruction(CHOOSE_COMBOBOX instructionChooseCombobox) '''
-		instructions not defined yet «instructionChooseCombobox.toString»
+		        WebElement textDemoÂ«iÂ» = driver.findElement(By.xpath("//*[@id='Â«instructionChooseCombobox.element.compileElementÂ»']"));
+		        textDemoÂ«i++Â».click();
+		
+		        for (WebElement webElement : driver.findElements(By.xpath("//*[contains(text(),'Â«instructionChooseCombobox.dataÂ»')]"))) {
+		            if (webElement.isDisplayed()){
+		                webElement.click();
+		            }
+		        }
 	'''
 
 	def dispatch compileInstruction(READ_ON instructionReadOn) '''
-		instructions not defined yet «instructionReadOn.toString»
+		instructions not defined yet Â«instructionReadOn.toStringÂ»
 	'''
 
-	def compileClickable(Clickable clickable) '''«clickable.compileElement»'''
+	def compileClickable(Clickable clickable) '''Â«clickable.compileElementÂ»'''
 
-	def compileReadable(Readable readable) '''«readable.compileElement»'''
+	def compileReadable(Readable readable) '''Â«readable.compileElementÂ»'''
 
-	def compileInsertable(Insertable insertable) '''«insertable.compileElement»'''
+	def compileInsertable(Insertable insertable) '''Â«insertable.compileElementÂ»'''
 
-	def compileVerifiable(Verifiable verifiable) '''«verifiable.compileElement»'''
+	def compileVerifiable(Verifiable verifiable) '''Â«verifiable.compileElementÂ»'''
 
-	def dispatch compileElement(BUTTON f) '''«f.name»'''
+	def dispatch compileElement(BUTTON f) '''Â«f.nameÂ»'''
 
-	def dispatch compileElement(TEXT f) '''«f.name»'''
+	def dispatch compileElement(TEXT f) '''Â«f.nameÂ»'''
 
-	def dispatch compileElement(SEARCH_FIELD f) '''«f.name»'''
+	def dispatch compileElement(SEARCH_FIELD f) '''Â«f.nameÂ»'''
 
-	def dispatch compileElement(CHECKBOX f) '''«f.name»'''
+	def dispatch compileElement(CHECKBOX f) '''Â«f.nameÂ»'''
 
-	def dispatch compileElement(COMBOBOX f) '''«f.name»'''
+	def dispatch compileElement(COMBOBOX f) '''Â«f.nameÂ»'''
 
-	def dispatch compileElement(LINK f) '''«f.url»'''
+	def dispatch compileElement(LINK f) '''Â«f.urlÂ»'''
 
-	def dispatch compileElement(RefElement f) '''refsElement.get("«f.ref.name»")'''
+	def dispatch compileElement(RefElement f) '''refsElement.get("Â«f.ref.nameÂ»")'''
 }

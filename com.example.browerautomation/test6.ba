@@ -1,8 +1,8 @@
-Test 'test6 ' 
-		openBrowser
+Test 'Test6'          
+		openBrowser 
 		openpage 'http://www.imt-atlantique.fr/fr/rechercher'
-		insert searchfield 'searchfield1' '2007'
-		choosecombo combobox 'combobox1' { 'Lemoisdernier' }
-		clickOn button 'Appliquer les filtres'
-		verify text 'Aucun résultat ne correspond à votre recherche'
+		insert searchfield 'search_api_fulltext' '2007'
+		choosecombo combobox 'recherche-date-range' { 'Le mois dernier' }
+		clickOn searchfield 'Appliquer les filtres'
+		verify text 'Aucun rÃ©sultat ne correspond Ã  votre recherche'
 end

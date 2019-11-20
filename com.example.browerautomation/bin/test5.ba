@@ -1,7 +1,8 @@
-Test 'Test5'       
+Test 'test5 ' 
 		openBrowser
-		openpage 'http://www.imt-atlantique.fr/fr/formation/trouver-ma-formation'
+		openpage 'http://www.imt-atlantique.fr/fr/trouver-ma-formation'
+		uncheck ALL
 		check checkbox 'Temps plein' checkbox 'Anglais' checkbox 'A domicile'
-		clickOn searchfield 'Appliquer les critÃ¨res'
+		clickOn button 'Appliquer les critères'
 		verify text 'No found course matching your criteria'
 end

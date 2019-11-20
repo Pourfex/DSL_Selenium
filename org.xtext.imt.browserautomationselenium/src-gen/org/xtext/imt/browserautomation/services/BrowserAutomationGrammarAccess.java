@@ -538,13 +538,14 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 		private final RuleCall cLINKParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cIMAGEParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cCOMBOBOXParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cRefElementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSEARCH_FIELDParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cRefElementParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Clickable:
-		//	BUTTON | LINK | IMAGE | COMBOBOX | RefElement;
+		//	BUTTON | LINK | IMAGE | COMBOBOX | SEARCH_FIELD | RefElement;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//BUTTON | LINK | IMAGE | COMBOBOX | RefElement
+		//BUTTON | LINK | IMAGE | COMBOBOX | SEARCH_FIELD | RefElement
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//BUTTON
@@ -559,8 +560,11 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 		//COMBOBOX
 		public RuleCall getCOMBOBOXParserRuleCall_3() { return cCOMBOBOXParserRuleCall_3; }
 		
+		//SEARCH_FIELD
+		public RuleCall getSEARCH_FIELDParserRuleCall_4() { return cSEARCH_FIELDParserRuleCall_4; }
+		
 		//RefElement
-		public RuleCall getRefElementParserRuleCall_4() { return cRefElementParserRuleCall_4; }
+		public RuleCall getRefElementParserRuleCall_5() { return cRefElementParserRuleCall_5; }
 	}
 	public class COMBOBOXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.imt.browserautomation.BrowserAutomation.COMBOBOX");
@@ -1042,7 +1046,7 @@ public class BrowserAutomationGrammarAccess extends AbstractGrammarElementFinder
 	}
 	
 	//Clickable:
-	//	BUTTON | LINK | IMAGE | COMBOBOX | RefElement;
+	//	BUTTON | LINK | IMAGE | COMBOBOX | SEARCH_FIELD | RefElement;
 	public ClickableElements getClickableAccess() {
 		return pClickable;
 	}

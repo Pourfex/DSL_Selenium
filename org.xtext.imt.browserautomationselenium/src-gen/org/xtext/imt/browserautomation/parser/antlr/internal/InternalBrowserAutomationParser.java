@@ -2558,7 +2558,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleClickable"
-    // InternalBrowserAutomation.g:961:1: ruleClickable returns [EObject current=null] : (this_BUTTON_0= ruleBUTTON | this_LINK_1= ruleLINK | this_IMAGE_2= ruleIMAGE | this_COMBOBOX_3= ruleCOMBOBOX | this_RefElement_4= ruleRefElement ) ;
+    // InternalBrowserAutomation.g:961:1: ruleClickable returns [EObject current=null] : (this_BUTTON_0= ruleBUTTON | this_LINK_1= ruleLINK | this_IMAGE_2= ruleIMAGE | this_COMBOBOX_3= ruleCOMBOBOX | this_SEARCH_FIELD_4= ruleSEARCH_FIELD | this_RefElement_5= ruleRefElement ) ;
     public final EObject ruleClickable() throws RecognitionException {
         EObject current = null;
 
@@ -2570,18 +2570,20 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
         EObject this_COMBOBOX_3 = null;
 
-        EObject this_RefElement_4 = null;
+        EObject this_SEARCH_FIELD_4 = null;
+
+        EObject this_RefElement_5 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBrowserAutomation.g:967:2: ( (this_BUTTON_0= ruleBUTTON | this_LINK_1= ruleLINK | this_IMAGE_2= ruleIMAGE | this_COMBOBOX_3= ruleCOMBOBOX | this_RefElement_4= ruleRefElement ) )
-            // InternalBrowserAutomation.g:968:2: (this_BUTTON_0= ruleBUTTON | this_LINK_1= ruleLINK | this_IMAGE_2= ruleIMAGE | this_COMBOBOX_3= ruleCOMBOBOX | this_RefElement_4= ruleRefElement )
+            // InternalBrowserAutomation.g:967:2: ( (this_BUTTON_0= ruleBUTTON | this_LINK_1= ruleLINK | this_IMAGE_2= ruleIMAGE | this_COMBOBOX_3= ruleCOMBOBOX | this_SEARCH_FIELD_4= ruleSEARCH_FIELD | this_RefElement_5= ruleRefElement ) )
+            // InternalBrowserAutomation.g:968:2: (this_BUTTON_0= ruleBUTTON | this_LINK_1= ruleLINK | this_IMAGE_2= ruleIMAGE | this_COMBOBOX_3= ruleCOMBOBOX | this_SEARCH_FIELD_4= ruleSEARCH_FIELD | this_RefElement_5= ruleRefElement )
             {
-            // InternalBrowserAutomation.g:968:2: (this_BUTTON_0= ruleBUTTON | this_LINK_1= ruleLINK | this_IMAGE_2= ruleIMAGE | this_COMBOBOX_3= ruleCOMBOBOX | this_RefElement_4= ruleRefElement )
-            int alt9=5;
+            // InternalBrowserAutomation.g:968:2: (this_BUTTON_0= ruleBUTTON | this_LINK_1= ruleLINK | this_IMAGE_2= ruleIMAGE | this_COMBOBOX_3= ruleCOMBOBOX | this_SEARCH_FIELD_4= ruleSEARCH_FIELD | this_RefElement_5= ruleRefElement )
+            int alt9=6;
             switch ( input.LA(1) ) {
             case 34:
                 {
@@ -2603,9 +2605,14 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
                 alt9=4;
                 }
                 break;
-            case RULE_ID:
+            case 32:
                 {
                 alt9=5;
+                }
+                break;
+            case RULE_ID:
+                {
+                alt9=6;
                 }
                 break;
             default:
@@ -2689,18 +2696,36 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
                     }
                     break;
                 case 5 :
-                    // InternalBrowserAutomation.g:1005:3: this_RefElement_4= ruleRefElement
+                    // InternalBrowserAutomation.g:1005:3: this_SEARCH_FIELD_4= ruleSEARCH_FIELD
                     {
 
-                    			newCompositeNode(grammarAccess.getClickableAccess().getRefElementParserRuleCall_4());
+                    			newCompositeNode(grammarAccess.getClickableAccess().getSEARCH_FIELDParserRuleCall_4());
                     		
                     pushFollow(FOLLOW_2);
-                    this_RefElement_4=ruleRefElement();
+                    this_SEARCH_FIELD_4=ruleSEARCH_FIELD();
 
                     state._fsp--;
 
 
-                    			current = this_RefElement_4;
+                    			current = this_SEARCH_FIELD_4;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 6 :
+                    // InternalBrowserAutomation.g:1014:3: this_RefElement_5= ruleRefElement
+                    {
+
+                    			newCompositeNode(grammarAccess.getClickableAccess().getRefElementParserRuleCall_5());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_RefElement_5=ruleRefElement();
+
+                    state._fsp--;
+
+
+                    			current = this_RefElement_5;
                     			afterParserOrEnumRuleCall();
                     		
 
@@ -2729,7 +2754,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleCOMBOBOX"
-    // InternalBrowserAutomation.g:1017:1: entryRuleCOMBOBOX returns [EObject current=null] : iv_ruleCOMBOBOX= ruleCOMBOBOX EOF ;
+    // InternalBrowserAutomation.g:1026:1: entryRuleCOMBOBOX returns [EObject current=null] : iv_ruleCOMBOBOX= ruleCOMBOBOX EOF ;
     public final EObject entryRuleCOMBOBOX() throws RecognitionException {
         EObject current = null;
 
@@ -2737,8 +2762,8 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalBrowserAutomation.g:1017:49: (iv_ruleCOMBOBOX= ruleCOMBOBOX EOF )
-            // InternalBrowserAutomation.g:1018:2: iv_ruleCOMBOBOX= ruleCOMBOBOX EOF
+            // InternalBrowserAutomation.g:1026:49: (iv_ruleCOMBOBOX= ruleCOMBOBOX EOF )
+            // InternalBrowserAutomation.g:1027:2: iv_ruleCOMBOBOX= ruleCOMBOBOX EOF
             {
              newCompositeNode(grammarAccess.getCOMBOBOXRule()); 
             pushFollow(FOLLOW_1);
@@ -2765,7 +2790,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleCOMBOBOX"
-    // InternalBrowserAutomation.g:1024:1: ruleCOMBOBOX returns [EObject current=null] : (otherlv_0= 'combobox' ( (lv_name_1_0= RULE_STRING ) ) ) ;
+    // InternalBrowserAutomation.g:1033:1: ruleCOMBOBOX returns [EObject current=null] : (otherlv_0= 'combobox' ( (lv_name_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleCOMBOBOX() throws RecognitionException {
         EObject current = null;
 
@@ -2776,21 +2801,21 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalBrowserAutomation.g:1030:2: ( (otherlv_0= 'combobox' ( (lv_name_1_0= RULE_STRING ) ) ) )
-            // InternalBrowserAutomation.g:1031:2: (otherlv_0= 'combobox' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1039:2: ( (otherlv_0= 'combobox' ( (lv_name_1_0= RULE_STRING ) ) ) )
+            // InternalBrowserAutomation.g:1040:2: (otherlv_0= 'combobox' ( (lv_name_1_0= RULE_STRING ) ) )
             {
-            // InternalBrowserAutomation.g:1031:2: (otherlv_0= 'combobox' ( (lv_name_1_0= RULE_STRING ) ) )
-            // InternalBrowserAutomation.g:1032:3: otherlv_0= 'combobox' ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1040:2: (otherlv_0= 'combobox' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1041:3: otherlv_0= 'combobox' ( (lv_name_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,30,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCOMBOBOXAccess().getComboboxKeyword_0());
             		
-            // InternalBrowserAutomation.g:1036:3: ( (lv_name_1_0= RULE_STRING ) )
-            // InternalBrowserAutomation.g:1037:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1045:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1046:4: (lv_name_1_0= RULE_STRING )
             {
-            // InternalBrowserAutomation.g:1037:4: (lv_name_1_0= RULE_STRING )
-            // InternalBrowserAutomation.g:1038:5: lv_name_1_0= RULE_STRING
+            // InternalBrowserAutomation.g:1046:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1047:5: lv_name_1_0= RULE_STRING
             {
             lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -2835,7 +2860,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleCHECKBOX"
-    // InternalBrowserAutomation.g:1058:1: entryRuleCHECKBOX returns [EObject current=null] : iv_ruleCHECKBOX= ruleCHECKBOX EOF ;
+    // InternalBrowserAutomation.g:1067:1: entryRuleCHECKBOX returns [EObject current=null] : iv_ruleCHECKBOX= ruleCHECKBOX EOF ;
     public final EObject entryRuleCHECKBOX() throws RecognitionException {
         EObject current = null;
 
@@ -2843,8 +2868,8 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalBrowserAutomation.g:1058:49: (iv_ruleCHECKBOX= ruleCHECKBOX EOF )
-            // InternalBrowserAutomation.g:1059:2: iv_ruleCHECKBOX= ruleCHECKBOX EOF
+            // InternalBrowserAutomation.g:1067:49: (iv_ruleCHECKBOX= ruleCHECKBOX EOF )
+            // InternalBrowserAutomation.g:1068:2: iv_ruleCHECKBOX= ruleCHECKBOX EOF
             {
              newCompositeNode(grammarAccess.getCHECKBOXRule()); 
             pushFollow(FOLLOW_1);
@@ -2871,7 +2896,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleCHECKBOX"
-    // InternalBrowserAutomation.g:1065:1: ruleCHECKBOX returns [EObject current=null] : (otherlv_0= 'checkbox' ( (lv_name_1_0= RULE_STRING ) ) ) ;
+    // InternalBrowserAutomation.g:1074:1: ruleCHECKBOX returns [EObject current=null] : (otherlv_0= 'checkbox' ( (lv_name_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleCHECKBOX() throws RecognitionException {
         EObject current = null;
 
@@ -2882,21 +2907,21 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalBrowserAutomation.g:1071:2: ( (otherlv_0= 'checkbox' ( (lv_name_1_0= RULE_STRING ) ) ) )
-            // InternalBrowserAutomation.g:1072:2: (otherlv_0= 'checkbox' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1080:2: ( (otherlv_0= 'checkbox' ( (lv_name_1_0= RULE_STRING ) ) ) )
+            // InternalBrowserAutomation.g:1081:2: (otherlv_0= 'checkbox' ( (lv_name_1_0= RULE_STRING ) ) )
             {
-            // InternalBrowserAutomation.g:1072:2: (otherlv_0= 'checkbox' ( (lv_name_1_0= RULE_STRING ) ) )
-            // InternalBrowserAutomation.g:1073:3: otherlv_0= 'checkbox' ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1081:2: (otherlv_0= 'checkbox' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1082:3: otherlv_0= 'checkbox' ( (lv_name_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,31,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getCHECKBOXAccess().getCheckboxKeyword_0());
             		
-            // InternalBrowserAutomation.g:1077:3: ( (lv_name_1_0= RULE_STRING ) )
-            // InternalBrowserAutomation.g:1078:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1086:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1087:4: (lv_name_1_0= RULE_STRING )
             {
-            // InternalBrowserAutomation.g:1078:4: (lv_name_1_0= RULE_STRING )
-            // InternalBrowserAutomation.g:1079:5: lv_name_1_0= RULE_STRING
+            // InternalBrowserAutomation.g:1087:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1088:5: lv_name_1_0= RULE_STRING
             {
             lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -2941,7 +2966,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleSEARCH_FIELD"
-    // InternalBrowserAutomation.g:1099:1: entryRuleSEARCH_FIELD returns [EObject current=null] : iv_ruleSEARCH_FIELD= ruleSEARCH_FIELD EOF ;
+    // InternalBrowserAutomation.g:1108:1: entryRuleSEARCH_FIELD returns [EObject current=null] : iv_ruleSEARCH_FIELD= ruleSEARCH_FIELD EOF ;
     public final EObject entryRuleSEARCH_FIELD() throws RecognitionException {
         EObject current = null;
 
@@ -2949,8 +2974,8 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalBrowserAutomation.g:1099:53: (iv_ruleSEARCH_FIELD= ruleSEARCH_FIELD EOF )
-            // InternalBrowserAutomation.g:1100:2: iv_ruleSEARCH_FIELD= ruleSEARCH_FIELD EOF
+            // InternalBrowserAutomation.g:1108:53: (iv_ruleSEARCH_FIELD= ruleSEARCH_FIELD EOF )
+            // InternalBrowserAutomation.g:1109:2: iv_ruleSEARCH_FIELD= ruleSEARCH_FIELD EOF
             {
              newCompositeNode(grammarAccess.getSEARCH_FIELDRule()); 
             pushFollow(FOLLOW_1);
@@ -2977,7 +3002,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleSEARCH_FIELD"
-    // InternalBrowserAutomation.g:1106:1: ruleSEARCH_FIELD returns [EObject current=null] : (otherlv_0= 'searchfield' ( (lv_name_1_0= RULE_STRING ) ) ) ;
+    // InternalBrowserAutomation.g:1115:1: ruleSEARCH_FIELD returns [EObject current=null] : (otherlv_0= 'searchfield' ( (lv_name_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleSEARCH_FIELD() throws RecognitionException {
         EObject current = null;
 
@@ -2988,21 +3013,21 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalBrowserAutomation.g:1112:2: ( (otherlv_0= 'searchfield' ( (lv_name_1_0= RULE_STRING ) ) ) )
-            // InternalBrowserAutomation.g:1113:2: (otherlv_0= 'searchfield' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1121:2: ( (otherlv_0= 'searchfield' ( (lv_name_1_0= RULE_STRING ) ) ) )
+            // InternalBrowserAutomation.g:1122:2: (otherlv_0= 'searchfield' ( (lv_name_1_0= RULE_STRING ) ) )
             {
-            // InternalBrowserAutomation.g:1113:2: (otherlv_0= 'searchfield' ( (lv_name_1_0= RULE_STRING ) ) )
-            // InternalBrowserAutomation.g:1114:3: otherlv_0= 'searchfield' ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1122:2: (otherlv_0= 'searchfield' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1123:3: otherlv_0= 'searchfield' ( (lv_name_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,32,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSEARCH_FIELDAccess().getSearchfieldKeyword_0());
             		
-            // InternalBrowserAutomation.g:1118:3: ( (lv_name_1_0= RULE_STRING ) )
-            // InternalBrowserAutomation.g:1119:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1127:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1128:4: (lv_name_1_0= RULE_STRING )
             {
-            // InternalBrowserAutomation.g:1119:4: (lv_name_1_0= RULE_STRING )
-            // InternalBrowserAutomation.g:1120:5: lv_name_1_0= RULE_STRING
+            // InternalBrowserAutomation.g:1128:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1129:5: lv_name_1_0= RULE_STRING
             {
             lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -3047,7 +3072,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleTEXT"
-    // InternalBrowserAutomation.g:1140:1: entryRuleTEXT returns [EObject current=null] : iv_ruleTEXT= ruleTEXT EOF ;
+    // InternalBrowserAutomation.g:1149:1: entryRuleTEXT returns [EObject current=null] : iv_ruleTEXT= ruleTEXT EOF ;
     public final EObject entryRuleTEXT() throws RecognitionException {
         EObject current = null;
 
@@ -3055,8 +3080,8 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalBrowserAutomation.g:1140:45: (iv_ruleTEXT= ruleTEXT EOF )
-            // InternalBrowserAutomation.g:1141:2: iv_ruleTEXT= ruleTEXT EOF
+            // InternalBrowserAutomation.g:1149:45: (iv_ruleTEXT= ruleTEXT EOF )
+            // InternalBrowserAutomation.g:1150:2: iv_ruleTEXT= ruleTEXT EOF
             {
              newCompositeNode(grammarAccess.getTEXTRule()); 
             pushFollow(FOLLOW_1);
@@ -3083,7 +3108,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleTEXT"
-    // InternalBrowserAutomation.g:1147:1: ruleTEXT returns [EObject current=null] : (otherlv_0= 'text' ( (lv_name_1_0= RULE_STRING ) ) ) ;
+    // InternalBrowserAutomation.g:1156:1: ruleTEXT returns [EObject current=null] : (otherlv_0= 'text' ( (lv_name_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleTEXT() throws RecognitionException {
         EObject current = null;
 
@@ -3094,21 +3119,21 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalBrowserAutomation.g:1153:2: ( (otherlv_0= 'text' ( (lv_name_1_0= RULE_STRING ) ) ) )
-            // InternalBrowserAutomation.g:1154:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1162:2: ( (otherlv_0= 'text' ( (lv_name_1_0= RULE_STRING ) ) ) )
+            // InternalBrowserAutomation.g:1163:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_STRING ) ) )
             {
-            // InternalBrowserAutomation.g:1154:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_STRING ) ) )
-            // InternalBrowserAutomation.g:1155:3: otherlv_0= 'text' ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1163:2: (otherlv_0= 'text' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1164:3: otherlv_0= 'text' ( (lv_name_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,33,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getTEXTAccess().getTextKeyword_0());
             		
-            // InternalBrowserAutomation.g:1159:3: ( (lv_name_1_0= RULE_STRING ) )
-            // InternalBrowserAutomation.g:1160:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1168:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1169:4: (lv_name_1_0= RULE_STRING )
             {
-            // InternalBrowserAutomation.g:1160:4: (lv_name_1_0= RULE_STRING )
-            // InternalBrowserAutomation.g:1161:5: lv_name_1_0= RULE_STRING
+            // InternalBrowserAutomation.g:1169:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1170:5: lv_name_1_0= RULE_STRING
             {
             lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -3153,7 +3178,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleBUTTON"
-    // InternalBrowserAutomation.g:1181:1: entryRuleBUTTON returns [EObject current=null] : iv_ruleBUTTON= ruleBUTTON EOF ;
+    // InternalBrowserAutomation.g:1190:1: entryRuleBUTTON returns [EObject current=null] : iv_ruleBUTTON= ruleBUTTON EOF ;
     public final EObject entryRuleBUTTON() throws RecognitionException {
         EObject current = null;
 
@@ -3161,8 +3186,8 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalBrowserAutomation.g:1181:47: (iv_ruleBUTTON= ruleBUTTON EOF )
-            // InternalBrowserAutomation.g:1182:2: iv_ruleBUTTON= ruleBUTTON EOF
+            // InternalBrowserAutomation.g:1190:47: (iv_ruleBUTTON= ruleBUTTON EOF )
+            // InternalBrowserAutomation.g:1191:2: iv_ruleBUTTON= ruleBUTTON EOF
             {
              newCompositeNode(grammarAccess.getBUTTONRule()); 
             pushFollow(FOLLOW_1);
@@ -3189,7 +3214,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleBUTTON"
-    // InternalBrowserAutomation.g:1188:1: ruleBUTTON returns [EObject current=null] : (otherlv_0= 'button' ( (lv_name_1_0= RULE_STRING ) ) ) ;
+    // InternalBrowserAutomation.g:1197:1: ruleBUTTON returns [EObject current=null] : (otherlv_0= 'button' ( (lv_name_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleBUTTON() throws RecognitionException {
         EObject current = null;
 
@@ -3200,21 +3225,21 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalBrowserAutomation.g:1194:2: ( (otherlv_0= 'button' ( (lv_name_1_0= RULE_STRING ) ) ) )
-            // InternalBrowserAutomation.g:1195:2: (otherlv_0= 'button' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1203:2: ( (otherlv_0= 'button' ( (lv_name_1_0= RULE_STRING ) ) ) )
+            // InternalBrowserAutomation.g:1204:2: (otherlv_0= 'button' ( (lv_name_1_0= RULE_STRING ) ) )
             {
-            // InternalBrowserAutomation.g:1195:2: (otherlv_0= 'button' ( (lv_name_1_0= RULE_STRING ) ) )
-            // InternalBrowserAutomation.g:1196:3: otherlv_0= 'button' ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1204:2: (otherlv_0= 'button' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1205:3: otherlv_0= 'button' ( (lv_name_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,34,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getBUTTONAccess().getButtonKeyword_0());
             		
-            // InternalBrowserAutomation.g:1200:3: ( (lv_name_1_0= RULE_STRING ) )
-            // InternalBrowserAutomation.g:1201:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1209:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1210:4: (lv_name_1_0= RULE_STRING )
             {
-            // InternalBrowserAutomation.g:1201:4: (lv_name_1_0= RULE_STRING )
-            // InternalBrowserAutomation.g:1202:5: lv_name_1_0= RULE_STRING
+            // InternalBrowserAutomation.g:1210:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1211:5: lv_name_1_0= RULE_STRING
             {
             lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -3259,7 +3284,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleLINK"
-    // InternalBrowserAutomation.g:1222:1: entryRuleLINK returns [EObject current=null] : iv_ruleLINK= ruleLINK EOF ;
+    // InternalBrowserAutomation.g:1231:1: entryRuleLINK returns [EObject current=null] : iv_ruleLINK= ruleLINK EOF ;
     public final EObject entryRuleLINK() throws RecognitionException {
         EObject current = null;
 
@@ -3267,8 +3292,8 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalBrowserAutomation.g:1222:45: (iv_ruleLINK= ruleLINK EOF )
-            // InternalBrowserAutomation.g:1223:2: iv_ruleLINK= ruleLINK EOF
+            // InternalBrowserAutomation.g:1231:45: (iv_ruleLINK= ruleLINK EOF )
+            // InternalBrowserAutomation.g:1232:2: iv_ruleLINK= ruleLINK EOF
             {
              newCompositeNode(grammarAccess.getLINKRule()); 
             pushFollow(FOLLOW_1);
@@ -3295,7 +3320,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleLINK"
-    // InternalBrowserAutomation.g:1229:1: ruleLINK returns [EObject current=null] : (otherlv_0= 'link' ( (lv_url_1_0= RULE_STRING ) ) ) ;
+    // InternalBrowserAutomation.g:1238:1: ruleLINK returns [EObject current=null] : (otherlv_0= 'link' ( (lv_url_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleLINK() throws RecognitionException {
         EObject current = null;
 
@@ -3306,21 +3331,21 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalBrowserAutomation.g:1235:2: ( (otherlv_0= 'link' ( (lv_url_1_0= RULE_STRING ) ) ) )
-            // InternalBrowserAutomation.g:1236:2: (otherlv_0= 'link' ( (lv_url_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1244:2: ( (otherlv_0= 'link' ( (lv_url_1_0= RULE_STRING ) ) ) )
+            // InternalBrowserAutomation.g:1245:2: (otherlv_0= 'link' ( (lv_url_1_0= RULE_STRING ) ) )
             {
-            // InternalBrowserAutomation.g:1236:2: (otherlv_0= 'link' ( (lv_url_1_0= RULE_STRING ) ) )
-            // InternalBrowserAutomation.g:1237:3: otherlv_0= 'link' ( (lv_url_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1245:2: (otherlv_0= 'link' ( (lv_url_1_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1246:3: otherlv_0= 'link' ( (lv_url_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,35,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getLINKAccess().getLinkKeyword_0());
             		
-            // InternalBrowserAutomation.g:1241:3: ( (lv_url_1_0= RULE_STRING ) )
-            // InternalBrowserAutomation.g:1242:4: (lv_url_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1250:3: ( (lv_url_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1251:4: (lv_url_1_0= RULE_STRING )
             {
-            // InternalBrowserAutomation.g:1242:4: (lv_url_1_0= RULE_STRING )
-            // InternalBrowserAutomation.g:1243:5: lv_url_1_0= RULE_STRING
+            // InternalBrowserAutomation.g:1251:4: (lv_url_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1252:5: lv_url_1_0= RULE_STRING
             {
             lv_url_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -3365,7 +3390,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleIMAGE"
-    // InternalBrowserAutomation.g:1263:1: entryRuleIMAGE returns [EObject current=null] : iv_ruleIMAGE= ruleIMAGE EOF ;
+    // InternalBrowserAutomation.g:1272:1: entryRuleIMAGE returns [EObject current=null] : iv_ruleIMAGE= ruleIMAGE EOF ;
     public final EObject entryRuleIMAGE() throws RecognitionException {
         EObject current = null;
 
@@ -3373,8 +3398,8 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalBrowserAutomation.g:1263:46: (iv_ruleIMAGE= ruleIMAGE EOF )
-            // InternalBrowserAutomation.g:1264:2: iv_ruleIMAGE= ruleIMAGE EOF
+            // InternalBrowserAutomation.g:1272:46: (iv_ruleIMAGE= ruleIMAGE EOF )
+            // InternalBrowserAutomation.g:1273:2: iv_ruleIMAGE= ruleIMAGE EOF
             {
              newCompositeNode(grammarAccess.getIMAGERule()); 
             pushFollow(FOLLOW_1);
@@ -3401,7 +3426,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleIMAGE"
-    // InternalBrowserAutomation.g:1270:1: ruleIMAGE returns [EObject current=null] : (otherlv_0= 'image' ( (lv_name_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )* ) ;
+    // InternalBrowserAutomation.g:1279:1: ruleIMAGE returns [EObject current=null] : (otherlv_0= 'image' ( (lv_name_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )* ) ;
     public final EObject ruleIMAGE() throws RecognitionException {
         EObject current = null;
 
@@ -3416,21 +3441,21 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalBrowserAutomation.g:1276:2: ( (otherlv_0= 'image' ( (lv_name_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )* ) )
-            // InternalBrowserAutomation.g:1277:2: (otherlv_0= 'image' ( (lv_name_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )* )
+            // InternalBrowserAutomation.g:1285:2: ( (otherlv_0= 'image' ( (lv_name_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )* ) )
+            // InternalBrowserAutomation.g:1286:2: (otherlv_0= 'image' ( (lv_name_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )* )
             {
-            // InternalBrowserAutomation.g:1277:2: (otherlv_0= 'image' ( (lv_name_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )* )
-            // InternalBrowserAutomation.g:1278:3: otherlv_0= 'image' ( (lv_name_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )*
+            // InternalBrowserAutomation.g:1286:2: (otherlv_0= 'image' ( (lv_name_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )* )
+            // InternalBrowserAutomation.g:1287:3: otherlv_0= 'image' ( (lv_name_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )*
             {
             otherlv_0=(Token)match(input,36,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getIMAGEAccess().getImageKeyword_0());
             		
-            // InternalBrowserAutomation.g:1282:3: ( (lv_name_1_0= RULE_STRING ) )
-            // InternalBrowserAutomation.g:1283:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1291:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1292:4: (lv_name_1_0= RULE_STRING )
             {
-            // InternalBrowserAutomation.g:1283:4: (lv_name_1_0= RULE_STRING )
-            // InternalBrowserAutomation.g:1284:5: lv_name_1_0= RULE_STRING
+            // InternalBrowserAutomation.g:1292:4: (lv_name_1_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1293:5: lv_name_1_0= RULE_STRING
             {
             lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_20); 
 
@@ -3452,7 +3477,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
             }
 
-            // InternalBrowserAutomation.g:1300:3: (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )*
+            // InternalBrowserAutomation.g:1309:3: (otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}' )*
             loop11:
             do {
                 int alt11=2;
@@ -3465,13 +3490,13 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalBrowserAutomation.g:1301:4: otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}'
+            	    // InternalBrowserAutomation.g:1310:4: otherlv_2= '{' ( (lv_params_3_0= rulePARAMS ) )* otherlv_4= '}'
             	    {
             	    otherlv_2=(Token)match(input,16,FOLLOW_21); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getIMAGEAccess().getLeftCurlyBracketKeyword_2_0());
             	    			
-            	    // InternalBrowserAutomation.g:1305:4: ( (lv_params_3_0= rulePARAMS ) )*
+            	    // InternalBrowserAutomation.g:1314:4: ( (lv_params_3_0= rulePARAMS ) )*
             	    loop10:
             	    do {
             	        int alt10=2;
@@ -3484,10 +3509,10 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
             	        switch (alt10) {
             	    	case 1 :
-            	    	    // InternalBrowserAutomation.g:1306:5: (lv_params_3_0= rulePARAMS )
+            	    	    // InternalBrowserAutomation.g:1315:5: (lv_params_3_0= rulePARAMS )
             	    	    {
-            	    	    // InternalBrowserAutomation.g:1306:5: (lv_params_3_0= rulePARAMS )
-            	    	    // InternalBrowserAutomation.g:1307:6: lv_params_3_0= rulePARAMS
+            	    	    // InternalBrowserAutomation.g:1315:5: (lv_params_3_0= rulePARAMS )
+            	    	    // InternalBrowserAutomation.g:1316:6: lv_params_3_0= rulePARAMS
             	    	    {
 
             	    	    						newCompositeNode(grammarAccess.getIMAGEAccess().getParamsPARAMSParserRuleCall_2_1_0());
@@ -3556,7 +3581,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRulePARAMS"
-    // InternalBrowserAutomation.g:1333:1: entryRulePARAMS returns [EObject current=null] : iv_rulePARAMS= rulePARAMS EOF ;
+    // InternalBrowserAutomation.g:1342:1: entryRulePARAMS returns [EObject current=null] : iv_rulePARAMS= rulePARAMS EOF ;
     public final EObject entryRulePARAMS() throws RecognitionException {
         EObject current = null;
 
@@ -3564,8 +3589,8 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalBrowserAutomation.g:1333:47: (iv_rulePARAMS= rulePARAMS EOF )
-            // InternalBrowserAutomation.g:1334:2: iv_rulePARAMS= rulePARAMS EOF
+            // InternalBrowserAutomation.g:1342:47: (iv_rulePARAMS= rulePARAMS EOF )
+            // InternalBrowserAutomation.g:1343:2: iv_rulePARAMS= rulePARAMS EOF
             {
              newCompositeNode(grammarAccess.getPARAMSRule()); 
             pushFollow(FOLLOW_1);
@@ -3592,7 +3617,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "rulePARAMS"
-    // InternalBrowserAutomation.g:1340:1: rulePARAMS returns [EObject current=null] : ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) ) ;
+    // InternalBrowserAutomation.g:1349:1: rulePARAMS returns [EObject current=null] : ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) ) ;
     public final EObject rulePARAMS() throws RecognitionException {
         EObject current = null;
 
@@ -3604,17 +3629,17 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalBrowserAutomation.g:1346:2: ( ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) ) )
-            // InternalBrowserAutomation.g:1347:2: ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1355:2: ( ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) ) )
+            // InternalBrowserAutomation.g:1356:2: ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) )
             {
-            // InternalBrowserAutomation.g:1347:2: ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) )
-            // InternalBrowserAutomation.g:1348:3: ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1356:2: ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) )
+            // InternalBrowserAutomation.g:1357:3: ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) )
             {
-            // InternalBrowserAutomation.g:1348:3: ( (lv_key_0_0= RULE_STRING ) )
-            // InternalBrowserAutomation.g:1349:4: (lv_key_0_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1357:3: ( (lv_key_0_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1358:4: (lv_key_0_0= RULE_STRING )
             {
-            // InternalBrowserAutomation.g:1349:4: (lv_key_0_0= RULE_STRING )
-            // InternalBrowserAutomation.g:1350:5: lv_key_0_0= RULE_STRING
+            // InternalBrowserAutomation.g:1358:4: (lv_key_0_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1359:5: lv_key_0_0= RULE_STRING
             {
             lv_key_0_0=(Token)match(input,RULE_STRING,FOLLOW_6); 
 
@@ -3640,11 +3665,11 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_1, grammarAccess.getPARAMSAccess().getEqualsSignKeyword_1());
             		
-            // InternalBrowserAutomation.g:1370:3: ( (lv_value_2_0= RULE_STRING ) )
-            // InternalBrowserAutomation.g:1371:4: (lv_value_2_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1379:3: ( (lv_value_2_0= RULE_STRING ) )
+            // InternalBrowserAutomation.g:1380:4: (lv_value_2_0= RULE_STRING )
             {
-            // InternalBrowserAutomation.g:1371:4: (lv_value_2_0= RULE_STRING )
-            // InternalBrowserAutomation.g:1372:5: lv_value_2_0= RULE_STRING
+            // InternalBrowserAutomation.g:1380:4: (lv_value_2_0= RULE_STRING )
+            // InternalBrowserAutomation.g:1381:5: lv_value_2_0= RULE_STRING
             {
             lv_value_2_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -3705,7 +3730,7 @@ public class InternalBrowserAutomationParser extends AbstractInternalAntlrParser
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000001E40000020L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000001F40000020L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000100000000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000088000002L});

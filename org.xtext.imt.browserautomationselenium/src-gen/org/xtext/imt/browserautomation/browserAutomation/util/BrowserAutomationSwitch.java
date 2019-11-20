@@ -255,6 +255,7 @@ public class BrowserAutomationSwitch<T> extends Switch<T>
         SEARCH_FIELD searcH_FIELD = (SEARCH_FIELD)theEObject;
         T result = caseSEARCH_FIELD(searcH_FIELD);
         if (result == null) result = caseInsertable(searcH_FIELD);
+        if (result == null) result = caseClickable(searcH_FIELD);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

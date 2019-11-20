@@ -1,7 +1,7 @@
-Test 'Test7'     
+Test 'Test7' 
 		openBrowser
 		openpage 'http://www.imt-atlantique.fr/fr'
 		element titre = find text '' { 'class' = 'actu_home_ctner_inner_cell1_titre' } [0]
-		clickOn titre 
+		clickOn titre
 		verify titre
 end

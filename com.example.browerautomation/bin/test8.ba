@@ -1,10 +1,10 @@
-Test 'Test8'         
+Test 'test8'  
 		openBrowser
 		openpage 'http://www.imt-atlantique.fr/fr'
 		element titre = find text '' { 'class' = 'actu_home_ctner_inner_cell1_titre' } [1]
 		element url  = find link '' { 'class' = 'actu_home_ctner_inner_cell1_titre' } [1]
 		openpage 'http://www.imt-atlantique.fr/fr/rechercher'
-		insert searchfield 'search_api_fulltext' titre
-		clickOn searchfield 'Appliquer les filtres' 
+		insert searchfield 'searchfield1' titre
+		clickOn button 'Appliquer les filtres'
 		verify url
 end

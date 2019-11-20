@@ -1003,11 +1003,20 @@ ruleClickable returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getClickableAccess().getRefElementParserRuleCall_4());
+			newCompositeNode(grammarAccess.getClickableAccess().getSEARCH_FIELDParserRuleCall_4());
 		}
-		this_RefElement_4=ruleRefElement
+		this_SEARCH_FIELD_4=ruleSEARCH_FIELD
 		{
-			$current = $this_RefElement_4.current;
+			$current = $this_SEARCH_FIELD_4.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getClickableAccess().getRefElementParserRuleCall_5());
+		}
+		this_RefElement_5=ruleRefElement
+		{
+			$current = $this_RefElement_5.current;
 			afterParserOrEnumRuleCall();
 		}
 	)

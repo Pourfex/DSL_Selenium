@@ -966,6 +966,7 @@ public class BrowserAutomationPackageImpl extends EPackageImpl implements Browse
     reaD_ONEClass.getESuperTypes().add(this.getInstruction());
     comboboxEClass.getESuperTypes().add(this.getClickable());
     searcH_FIELDEClass.getESuperTypes().add(this.getInsertable());
+    searcH_FIELDEClass.getESuperTypes().add(this.getClickable());
     textEClass.getESuperTypes().add(this.getReadable());
     textEClass.getESuperTypes().add(this.getVerifiable());
     buttonEClass.getESuperTypes().add(this.getReadable());

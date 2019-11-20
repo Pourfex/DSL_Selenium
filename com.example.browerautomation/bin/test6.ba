@@ -1,0 +1,8 @@
+Test 'test6 '  
+		openBrowser
+		openpage 'http://www.imt-atlantique.fr/fr/rechercher'
+		insert searchfield 'searchfield1' '2007'
+		choosecombo combobox 'combobox1' { 'Lemoisdernier' }
+		clickOn button 'Appliquer les filtres'
+		verify text 'Aucun r�sultat ne correspond � votre recherche'
+end

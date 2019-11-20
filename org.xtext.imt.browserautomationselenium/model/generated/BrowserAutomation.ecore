@@ -66,7 +66,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="CHECKBOX">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SEARCH_FIELD" eSuperTypes="#//Insertable">
+  <eClassifiers xsi:type="ecore:EClass" name="SEARCH_FIELD" eSuperTypes="#//Insertable #//Clickable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TEXT" eSuperTypes="#//Readable #//Verifiable">

@@ -415,6 +415,7 @@ public class BrowserAutomationSemanticSequencer extends AbstractDelegatingSemant
 	/**
 	 * Contexts:
 	 *     Insertable returns SEARCH_FIELD
+	 *     Clickable returns SEARCH_FIELD
 	 *     SEARCH_FIELD returns SEARCH_FIELD
 	 *
 	 * Constraint:
